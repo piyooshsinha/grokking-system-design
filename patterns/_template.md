@@ -1,42 +1,41 @@
 # [Pattern name]
 
-<!-- Before you commit: replace patterns-PATTERN-SLUG in the designgurus.io links below with this file path, slashes turned into dashes and .md dropped. -->
-
-> One-line summary of what this pattern does.
+> One-line summary of the problem this pattern solves and its key trade-off.
 
 ## What it is
 
-Two or three sentences explaining the concept in plain language.
+Explain the concept in plain language and how it works.
 
 ## When to use it
 
-- Bullet points describing the situations where this pattern applies.
-- Keep them concrete (for example "read-heavy workloads with a high cache hit ratio").
+- Describe the workload or requirement that makes this useful.
+- Name a case where it would be a poor fit.
 
 ## How it works
 
-A short explanation of the mechanism. A small ASCII or Mermaid diagram helps:
+Use a short sequence or diagram to explain the mechanism.
 
+```mermaid
+flowchart LR
+    Client --> Component --> Store[(Data store)]
 ```
-[client] --> [component] --> [data store]
-```
 
-## Trade-offs
+## Trade-offs and failure modes
 
-| Pro | Con |
-|-----|-----|
 | Benefit | Cost or risk |
-| Benefit | Cost or risk |
+|---------|--------------|
+| ... | ... |
 
-## Common variations
+Include operational failure cases and how to detect them.
 
-- Variation one and when you would pick it.
-- Variation two and when you would pick it.
+## Variations and alternatives
 
-## How to talk about it in an interview
+Explain the common alternatives and when to choose each.
 
-A sentence or two on the signal interviewers look for, and the follow-up questions to expect.
+## Interview use
 
-## Go deeper
+What requirements signal this pattern, and what follow-up question tests whether the design is sound?
 
-Link to the relevant lesson in [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-PATTERN-SLUG) or the [main course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-PATTERN-SLUG).
+## Related reading and sources
+
+Link related pages in this repository. Cite primary references for implementation-specific claims, and identify any directly adapted source material.

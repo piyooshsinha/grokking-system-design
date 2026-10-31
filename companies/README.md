@@ -1,15 +1,15 @@
-# Company-specific system design interviews
+# Company interview preparation notes
 
-The same interview loop does not exist twice. Citadel budgets microseconds, ServiceNow probes upgrade safety, Anthropic hands you a problem its own teams are still solving, and Bloomberg asks "why this and not the alternative" until it finds bottom. These notes summarize how 122 companies actually run their system design rounds, so you can aim the [patterns](../patterns/) and [questions](../questions/) in this repo at the loop you are facing.
+These guides help you decide what to research and practice for a company-specific system design interview. Interview loops vary by role, level, team, and location, and they change over time. Treat reported questions as leads for practice, not promises about what you will be asked.
 
-Each company page covers: how the round runs, the signature questions candidates report, what interviewers probe, and which patterns in this repo to review, with a link to the full company guide on DesignGurus.io for the complete round-by-round breakdown.
+New and revised pages should state when they were last reviewed, link to supporting sources, and distinguish official company information from candidate reports. See the [company guide template](_template.md).
 
-How to use these notes:
+How to use the notes:
 
-1. Read your company's page to learn the round's shape and register.
-2. Review the linked [patterns](../patterns/README.md) until they are fluent.
-3. Rehearse the signature questions using the [interview framework](../cheat-sheets/interview-framework.md).
-4. Go deeper with the full company guide and the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design).
+1. Check the evidence and freshness on the company page.
+2. Review the linked [patterns](../patterns/README.md) and [questions](../questions/README.md).
+3. Rehearse a design using the [interview framework](../cheat-sheets/interview-framework.md).
+4. Verify any time-sensitive process details against the linked sources.
 
 ## AI labs and AI infrastructure
 

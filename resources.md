@@ -1,100 +1,37 @@
-# Resources
+# Further reading and references
 
-A curated list of useful resources for system design interview prep. Pull requests with good additions are welcome (see [CONTRIBUTING](CONTRIBUTING.md)).
+This list points to the open source material that informs the project, plus primary sources for going deeper. Verify version-sensitive technical details in current vendor documentation before relying on them.
 
-## Courses (DesignGurus)
+## Source repositories
 
-Different courses fit different stages. Pick by where you are:
+- [Grokking System Design](https://github.com/design-gurus/grokking-system-design) — pattern-based system design interview preparation by DesignGurus.io. See its [CC BY 4.0 license](https://github.com/design-gurus/grokking-system-design/blob/main/LICENSE).
+- [The System Design Primer](https://github.com/donnemartin/system-design-primer) — a broad learning guide, interview questions, and flashcards by Donne Martin and contributors. See its [CC BY 4.0 license](https://github.com/donnemartin/system-design-primer/blob/master/LICENSE.txt).
 
-| Course | Who it is for |
-|--------|---------------|
-| [Grokking System Design Fundamentals](https://www.designgurus.io/course/grokking-system-design-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources) | New to system design. Learn the core building blocks first. |
-| [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources) | The core interview prep course, by Arslan Ahmad. Start here for most people. |
-| [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources) | Short on time. A fast, focused path before an interview. |
-| [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources) | Senior and advanced. Harder problems and deeper dives. |
+See [NOTICE.md](NOTICE.md) for how this repository credits and adapts source material.
 
-## Choosing between courses
+## Primary technical references
 
-Ranked comparisons, for deciding what to buy before you start.
+Prefer primary documentation, research papers, and standards when checking a specific implementation or guarantee. Useful starting points include:
 
-- [Best System Design Courses](https://github.com/design-gurus/best-system-design-courses): the best system design courses compared side by side, by format, price, and goal, including free, Udemy, and senior-level options.
-- [Top ten system design interview courses, judged by what they actually teach](https://designgurus.substack.com/p/top-ten-system-design-interview-courses): the Design Gurus newsletter ranks ten courses by what each one covers and who it suits.
-- [I reviewed 20 system design courses; here are the top 7](https://dev.to/branden_floris/i-reviewed-20-system-design-courses-here-are-the-top-7-31kp): Branden Floris on dev.to, with a comparison table and a pick for each kind of learner.
-- [Grokking the System Design Interview: a detailed review](https://dev.to/branden_floris/grokking-the-system-design-interview-a-detailed-review-5e7h): the same author on what this one course contains, and where it falls short.
-- [Working through the resources that carry the Grokking name](https://interviewnoodle.com/i-compared-every-grokking-system-design-resource-the-original-is-still-the-one-to-get-02b38f9ccf22): one reader's account of telling the original course apart from the rest, on InterviewNoodle.
+- [The Raft consensus paper](https://raft.github.io/raft.pdf)
+- [The Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)
+- [The Google File System paper](https://research.google/pubs/the-google-file-system/)
+- [The Bigtable paper](https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/)
+- [Kafka documentation](https://kafka.apache.org/documentation/)
+- [PostgreSQL documentation](https://www.postgresql.org/docs/)
 
-None of these is an independent review. The newsletter and InterviewNoodle are Design Gurus publications, and both dev.to pieces recommend this course, so read them as recommendations rather than neutral verdicts.
+## Production engineering write-ups
 
-## Other official (DesignGurus)
+Engineering blogs are useful for seeing how design decisions hold up under real traffic. Treat each post as a case study of one system and its constraints, not a universal template.
 
-- [Mock interviews](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources): live practice with ex-FAANG engineers.
-- [DesignGurus blog](https://www.designgurus.io/blog?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources): free articles on system design and interview prep.
-- [DesignGurus YouTube](https://www.youtube.com/@designgurus1173): free video lessons.
-- [Newsletter](https://designgurus.substack.com/): system design and interview tips by email.
-
-## Free deep-dive blogs
-
-Free reads that go deeper than the cheat sheets in this repo:
-
-- [Caching in System Design Interviews](https://www.designgurus.io/blog/caching-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Content Delivery Networks (CDN) in System Design](https://www.designgurus.io/blog/content-delivery-network-cdn-system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Data Replication Strategies](https://www.designgurus.io/blog/data-replication-strategies-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Database Sharding Guide](https://www.designgurus.io/blog/database-sharding-guide-2026?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Consistent Hashing vs Traditional Hashing](https://www.designgurus.io/blog/consistent-hashing-vs-traditional-hashing?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Database Indexing Explained](https://www.designgurus.io/blog/database-indexing?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [How to Design a URL Shortener](https://www.designgurus.io/blog/url-shortening?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [How to Design a Web Crawler](https://www.designgurus.io/blog/design-web-crawler?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-
-## Top system design guides (DesignGurus blog)
-
-The most-read foundational guides, ranked by readership:
-
-- [25 Fundamental System Design Concepts](https://www.designgurus.io/blog/system-design-interview-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [System Design Interview Guide (2026): Framework and How to Prepare](https://www.designgurus.io/blog/complete-guide-sys-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [The Ultimate System Design Cheat Sheet](https://www.designgurus.io/blog/system-design-cheat-sheet?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [System Design Primer: The Ultimate Guide](https://www.designgurus.io/blog/system-design-primer-the-ultimate-guide?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [185+ System Design Guides: The Interview Library](https://www.designgurus.io/blog/system-design-interview-library?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Back-of-the-Envelope Estimation](https://www.designgurus.io/blog/back-of-the-envelope-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [19 Essential Microservices Patterns](https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Monolithic vs Microservices vs SOA](https://www.designgurus.io/blog/monolithic-service-oriented-microservice-architecture?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-- [Top 10 Software Architecture Patterns](https://www.designgurus.io/blog/understanding-top-10-software-architecture-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources)
-
-## Engineering blogs and real-world architectures
-
-The best free source of real-world system design is the teams building it. These blogs show the patterns in this repo running in production:
-
-- [Netflix TechBlog](https://netflixtechblog.com)
+- [Netflix Technology Blog](https://netflixtechblog.com/)
 - [Uber Engineering](https://www.uber.com/blog/engineering/)
-- [Meta Engineering](https://engineering.fb.com)
+- [Meta Engineering](https://engineering.fb.com/)
 - [Discord Engineering](https://discord.com/category/engineering)
-- [Cloudflare Blog](https://blog.cloudflare.com)
+- [Cloudflare Blog](https://blog.cloudflare.com/)
 - [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/)
-- [High Scalability](http://highscalability.com)
 
-For the landmark systems behind these ideas, see the [deep dives](deep-dives/).
+## Study tools
 
-## Credits and related open-source guides
-
-- [system-design-primer](https://github.com/donnemartin/system-design-primer) by Donne Martin — a landmark open-source system design guide (CC BY 4.0). This repo's [fundamentals](fundamentals/) track and [scaling walkthrough](guides/scaling-to-millions-of-users.md) were written to complement it in the pattern-based Grokking style: the same core concepts, in our own words, with original diagrams.
-
-## In this repo
-
-- [Fundamentals](fundamentals/): the concepts under the patterns.
-- [Patterns](patterns/): the building blocks.
-- [Guides](guides/): end-to-end walkthroughs.
-- [Questions](questions/): worked-through design problems.
-- [Low-level design](low-level-design/): the object-oriented design round.
-- [Cheat sheets](cheat-sheets/): framework, estimation, SQL vs NoSQL, flashcards.
-- [Roadmaps](roadmaps/): study plans.
-- [Study assistant](tools/study-assistant/): a local, offline AI tutor over this repo.
-- [Glossary](glossary.md): the vocabulary.
-
-## How to use this list
-
-Start with the [interview framework](cheat-sheets/interview-framework.md) and the core [patterns](patterns/), then practice with the [questions](questions/). Use the free blogs when you want more depth, and the courses when you want the full guided path with diagrams and worked solutions.
+- [Ollama](https://ollama.com) — optional local model runtime used by the [study assistant](tools/study-assistant/README.md).
+- [Mermaid documentation](https://mermaid.js.org/) — syntax reference for diagrams used in the learning material.

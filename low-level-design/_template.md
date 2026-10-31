@@ -1,10 +1,10 @@
-# Design <thing>
+# Design [thing]
 
-> One-line description of what the object/system does.
+> One-line summary of the object or workflow being designed.
 
-## Requirements
+## Requirements and assumptions
 
-**Functional**
+**Required behavior**
 - ...
 
 **Out of scope / assumptions**
@@ -12,7 +12,7 @@
 
 ## Core objects
 
-Identify the nouns → classes, and the verbs → methods.
+Identify the important entities and responsibilities.
 
 - `ClassA` — responsibility.
 - `ClassB` — responsibility.
@@ -31,17 +31,16 @@ classDiagram
 
 ## Key flow
 
-Walk one use case through the objects, step by step.
+Walk one use case through the collaborating objects, step by step.
 
-## Design patterns used
+## Design choices
 
-- **Pattern** — where and why.
+Explain the abstractions, patterns, and alternatives. State why each pattern earns its place.
 
 ## Concurrency and edge cases
 
-- ...
+Cover races, invalid state transitions, resource limits, and recovery behavior.
 
-## Go deeper
+## Sources and related reading
 
-- Related: [low-level design index](README.md)
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)
+Link related material in this repository and cite external references for implementation-specific claims. Identify direct adaptations and their sources.

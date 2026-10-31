@@ -1,45 +1,61 @@
-# Design [System]
+# Design [system]
 
-<!-- Before you commit: replace questions-QUESTION-SLUG in the designgurus.io links below with this file path, slashes turned into dashes and .md dropped. -->
+> One-line summary of the user problem and system being designed.
 
-> One-line description of what the system does.
+## Problem and scope
 
-## 1. Requirements
+State the main use cases, out-of-scope behavior, and assumptions you need the interviewer to confirm.
+
+## Requirements
 
 **Functional**
-- What the system must do (the core use cases).
+- ...
 
 **Non-functional**
-- Scale, latency, availability, consistency expectations.
+- Scale, latency, availability, consistency, durability, and cost expectations.
 
-## 2. Estimation
+## Capacity estimate
 
-Rough numbers: users, requests per second, reads vs writes, storage per year. See the [estimation cheat sheet](../cheat-sheets/estimation.md).
+Show the assumptions and rough math for peak traffic, storage, and bandwidth. Link to the [estimation guide](../cheat-sheets/estimation.md).
 
-## 3. API
+## API and data model
 
-List the core endpoints (name, inputs, outputs).
+List the operations and the entities/access patterns that shape the data model. Call out important invariants.
 
-## 4. Data model
+## High-level design
 
-The main entities and how they relate. Note the access patterns that drive the choice of store.
+Draw the main components and their connections. Keep the first version simple, then evolve it as requirements demand.
 
-## 5. High-level design
-
-A short description plus a simple diagram:
-
-```
-[client] --> [load balancer] --> [service] --> [data store]
+```mermaid
+flowchart LR
+    Client --> API --> Service --> Store[(Data store)]
 ```
 
-## 6. Deep dive
+## Critical flows
 
-Pick one or two interesting parts (for example the hot path, the data partitioning, or the consistency model) and go deeper.
+Walk through one read path and one write path. Show where synchronous work ends and asynchronous work begins.
 
-## 7. Bottlenecks and trade-offs
+## Deep dive
 
-What breaks first at scale, and how you would address it. Reference the [patterns](../patterns/) you used.
+Choose one or two important decisions: partitioning, consistency, fan-out, caching, scheduling, or another system-specific challenge. Explain alternatives and why the selected approach fits.
 
-## Go deeper
+## Failure modes and recovery
 
-Link to the full worked solution in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG).
+Describe the important failures, how the system detects and contains them, and what guarantees users see during recovery. Include retry and idempotency behavior where relevant.
+
+## Bottlenecks and trade-offs
+
+| Decision | Why it fits | Cost or risk |
+|----------|-------------|--------------|
+| ... | ... | ... |
+
+Name the first likely bottleneck and how you would measure it before scaling.
+
+## Interview follow-ups
+
+- What requirement change would alter this design?
+- What fails first at ten times the traffic?
+
+## Sources and related reading
+
+Link relevant pages in this repository and cite primary sources for implementation-specific facts. If this walkthrough adapts a source, identify it and say what was changed.

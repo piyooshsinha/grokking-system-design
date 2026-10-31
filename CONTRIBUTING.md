@@ -1,34 +1,25 @@
 # Contributing
 
-Thanks for helping improve this free system design interview guide. Contributions of all sizes are welcome: fixing a typo, clarifying an explanation, adding a pattern, or writing a new question walkthrough.
+Contributions should make the material clearer, more accurate, or more useful to practice with. Small, focused changes are easiest to review.
 
-## Ground rules
+## Writing principles
 
-- Keep it original. Do not paste content from paid courses (including the DesignGurus course) or other copyrighted sources. Write explanations in your own words.
-- Keep it concise and practical. Favor clear summaries, tables, and bullet points over long essays.
-- Stay vendor-neutral in the technical explanations. Link to the course as the "go deeper" option, not as the only answer.
-- No em dashes. Use commas, colons, parentheses, or periods instead. (House style.)
+- Explain ideas in your own words. Do not reproduce paid course material or copy another source without attribution.
+- Cite primary documentation, papers, or standards for technical claims that depend on a particular implementation or version.
+- For company interview notes, include a source and date when available. Clearly label candidate reports as anecdotal, distinguish them from official company information, and avoid presenting a reported prompt as a guaranteed question.
+- State assumptions and show trade-offs. A design walkthrough should explain why a choice fits its requirements and what it costs.
+- Keep one main concept per file. Prefer clear prose, useful diagrams, and specific examples.
+- Preserve CC BY 4.0 attribution when adapting material from either source named in [NOTICE.md](NOTICE.md). Add a page-level source note when a direct adaptation is identifiable.
 
-## How to add a pattern
+## Adding content
 
-1. Copy `patterns/_template.md` to `patterns/your-pattern.md`.
-2. Fill in each section.
-3. Add a row to the table in `patterns/README.md` and, if it is a core pattern, to the table in the root `README.md`.
+- **Question walkthrough:** copy [questions/_template.md](questions/_template.md), then add it to [questions/README.md](questions/README.md).
+- **Pattern:** copy [patterns/_template.md](patterns/_template.md), then add it to [patterns/README.md](patterns/README.md).
+- **Low-level design exercise:** copy [low-level-design/_template.md](low-level-design/_template.md), then add it to [low-level-design/README.md](low-level-design/README.md).
+- **Company guide:** copy [companies/_template.md](companies/_template.md), then add it to [companies/README.md](companies/README.md).
 
-## How to add a question walkthrough
-
-1. Copy `questions/_template.md` to `questions/design-your-system.md`.
-2. Fill in each section. Keep the solution at the "approach and trade-offs" level, not a full paid-grade solution.
-3. Add a row to the catalog table in `questions/README.md`.
-
-## Style
-
-- One concept per file.
-- **Every content page opens with a one-line summary**, written as a blockquote directly under the title, before any other text. It should say what the page settles or explains, in one sentence. This is not decoration: `llms.txt` is generated from these lines, so a page without one breaks the generator, and an AI assistant quoting the page picks up the summary in the same chunk. The templates already include it.
-- Use relative links between files so they work on GitHub.
-- Prefer simple ASCII or Mermaid diagrams that render on GitHub.
-- Links to designgurus.io carry campaign parameters so we can see which pages send readers there. Append `?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=<page>`, where `<page>` is the file path with slashes turned into dashes and `.md` dropped (`cheat-sheets/estimation.md` becomes `cheat-sheets-estimation`). Links to any other site stay plain.
+Use relative links for repository pages so they work on GitHub. Every content page should begin with a one-line blockquote summary beneath its title; the study assistant and `llms.txt` use those summaries.
 
 ## Pull requests
 
-Open a pull request with a short description of what you changed and why. Small, focused PRs are easier to review and merge.
+Describe the learner problem your change addresses and the main content or behavior it changes. Include sources for factual claims and note any adaptations.
