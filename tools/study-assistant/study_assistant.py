@@ -605,6 +605,7 @@ UI_DIR = SCRIPT_DIR / "ui"
 
 # The guided learning path: directories, in the order a learner should walk them.
 SECTION_ORDER = [
+    ("Start here", "start-here"),
     ("Fundamentals", "fundamentals"),
     ("Guides", "guides"),
     ("Patterns", "patterns"),

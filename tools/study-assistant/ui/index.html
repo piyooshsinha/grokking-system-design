@@ -251,7 +251,10 @@ async function boot(){
   const toc = await api('/api/toc');
   state.toc = toc.sections; state.flat = state.toc.flatMap(s=>s.pages.map(p=>p.path));
   renderSidebar();
-  const initial = decodeURIComponent((location.hash.replace(/^#\//,'')||'')) || (state.flat[0]||'fundamentals/README.md');
+  const route = decodeURIComponent((location.hash.replace(/^#\//,'')||''));
+  let lastPage = '';
+  try{ lastPage = localStorage.getItem('gsd-last-page')||''; }catch(e){}
+  const initial = route || (state.flat.includes(lastPage) ? lastPage : 'start-here/README.md');
   loadPage(initial, false);
   updateProgress();
 }
@@ -283,6 +286,7 @@ async function loadPage(path, push=true){
   const data = await api('/api/page?path='+encodeURIComponent(path));
   if(data.error){ $('#content').innerHTML='<p class="hint">Could not load '+escapeHtml(path)+'.</p>'; return; }
   state.current = path;
+  try{ localStorage.setItem('gsd-last-page', path); }catch(e){}
   document.title = data.title + ' — Systems Workbench';
   const c = $('#content'); c.innerHTML = data.html;
   wireInternalLinks(c);
