@@ -21,7 +21,7 @@ Want to self-test without solutions? Use the [practice question bank](practice-b
 
 ## Advanced questions
 
-Deeper problems, mapped to the [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii) topics.
+Deeper problems, mapped to the [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme) topics.
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|
@@ -39,7 +39,7 @@ Deeper problems, mapped to the [Advanced System Design Interview, Volume II](htt
 
 ## More systems
 
-A broad set of commonly-asked systems, mapped to the [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course).
+A broad set of commonly-asked systems, mapped to the [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
 
 | Question | Key idea |
 |----------|----------|
@@ -65,10 +65,18 @@ A broad set of commonly-asked systems, mapped to the [System Design Interview Cr
 | [Design Google Search](design-google-search.md) | Crawl, inverted index, ranking |
 | [Design Airbnb](design-airbnb.md) | Geo search, no double-booking |
 | [Design a distributed job scheduler](design-distributed-job-scheduler.md) | Scheduling at scale, reliable firing |
+| [Design Ticketmaster](design-ticketmaster.md) | Seat holds, no double-sell, on-sale spikes |
+| [Design a real-time gaming leaderboard](design-gaming-leaderboard.md) | Sorted sets, rank at scale |
+| [Design a proximity service (Yelp)](design-proximity-service.md) | Geospatial indexing, two-step reads |
+| [Design Google Maps](design-google-maps.md) | Tiles, hierarchical routing, live ETA |
+| [Design a food delivery app (DoorDash)](design-food-delivery.md) | Order state machine, dispatch, live tracking |
+| [Design a hotel reservation system](design-hotel-reservation.md) | Counted inventory by date, no double-booking |
+| [Design Zoom](design-zoom.md) | UDP media, SFU topology, regional cascades |
+| [Design a distributed message queue](design-distributed-message-queue.md) | Partitioned log, replication, delivery semantics |
 
 ## AI and LLM systems
 
-The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals).
+The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|
@@ -78,6 +86,8 @@ The fastest-growing question category. AI labs and AI-infrastructure companies (
 | [Design a model evaluation pipeline](design-model-evaluation-pipeline.md) | Medium | Batch eval runs, LLM-as-judge, release gating | Written |
 | [Design an AI agent orchestration system](design-ai-agent-orchestration.md) | Hard | Durable workflows, tool sandboxing, budgets | Written |
 | [Design a GPU cluster scheduler](design-gpu-cluster-scheduler.md) | Hard | Gang scheduling, preemption, utilization | Written |
+| [Design an AI code assistant (Copilot)](design-code-assistant.md) | Hard | FIM completions, prefix caching, repo retrieval | Written |
+| [Design an LLM gateway](design-llm-gateway.md) | Medium | Routing, token quotas, failover, cost metering | Written |
 
 ## Add a new question
 

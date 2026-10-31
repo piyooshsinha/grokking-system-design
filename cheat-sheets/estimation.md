@@ -1,5 +1,7 @@
 # Back-of-the-envelope estimation
 
+> The handful of numbers worth memorizing, and how to turn them into a size for any system.
+
 The numbers worth memorizing so you can size a system quickly and credibly.
 
 ## Latency numbers every engineer should know (approximate)
@@ -7,37 +9,25 @@ The numbers worth memorizing so you can size a system quickly and credibly.
 | Operation | Time |
 |-----------|------|
 | L1 cache reference | ~1 ns |
-| Branch mispredict | ~3 ns |
-| L2 cache reference | ~4 ns |
-| Mutex lock/unlock | ~25 ns |
 | Main memory reference | ~100 ns |
-| Compress 1 KB | ~2 microseconds |
 | Read 1 MB sequentially from memory | ~10 microseconds |
-| Send 1 KB over a 1 Gbps network | ~10 microseconds |
 | SSD random read | ~100 microseconds |
 | Round trip within a data center | ~500 microseconds |
 | Read 1 MB sequentially from SSD | ~1 ms |
 | Disk seek (spinning) | ~10 ms |
-| Read 1 MB sequentially from disk | ~20 ms |
 | Round trip between continents | ~150 ms |
 
-Takeaway: memory is roughly 100 times faster than SSD, which is far faster than a disk seek, which is far faster than a cross-continent network call. [Cache](../patterns/caching.md) accordingly, and keep the common path in the fast tiers.
+Takeaway: memory is roughly 100 times faster than SSD, which is far faster than a disk seek, which is far faster than a cross-continent network call. [Cache](../patterns/caching.md) accordingly. For the full ladder on one log scale, with the design rules that fall out of it, see [latency numbers, visualized](latency-numbers.md).
 
 ## Powers of two (for storage)
 
-| Power | Exact value | Approx | Name |
-|-------|-------------|--------|------|
-| 2^7 | 128 | — | — |
-| 2^8 | 256 | — | — |
-| 2^10 | 1,024 | 1 thousand | 1 KB |
-| 2^16 | 65,536 | 65 thousand | 64 KB |
-| 2^20 | 1,048,576 | 1 million | 1 MB |
-| 2^30 | ~1.07 billion | 1 billion | 1 GB |
-| 2^32 | ~4.29 billion | 4 billion | 4 GB (the IPv4 address space) |
-| 2^40 | ~1.10 trillion | 1 trillion | 1 TB |
-| 2^50 | ~1.13 quadrillion | 1 quadrillion | 1 PB |
-
-Handy for sizing IDs and storage: 2^32 is ~4 billion (an `int` overflows here — use 64-bit IDs at scale), and 2^64 is ~1.8 × 10^19.
+| Power | Approx value | Name |
+|-------|--------------|------|
+| 10 | 1 thousand | 1 KB |
+| 20 | 1 million | 1 MB |
+| 30 | 1 billion | 1 GB |
+| 40 | 1 trillion | 1 TB |
+| 50 | 1 quadrillion | 1 PB |
 
 ## Availability (the "nines")
 
@@ -58,6 +48,18 @@ Each extra nine cuts downtime 10×. The full table plus how availability combine
 
 ## A worked example
 
+Every estimate is the same short chain. Learn the chain and the numbers follow:
+
+```mermaid
+flowchart LR
+    U["Daily active users"] -->|"x actions per user"| R["Requests per day"]
+    R -->|"divide by 86,400"| RPS["Average requests<br/>per second"]
+    RPS -->|"x 2 or 3"| PK["Peak requests<br/>per second"]
+    R -->|"x bytes per record"| ST["Storage per day"]
+    ST -->|"x 365, x years,<br/>x replication factor"| TOT["Total storage"]
+    RPS -->|"x response size"| BW["Bandwidth"]
+```
+
 100 million writes per day:
 - Per second: 100,000,000 / 100,000 is about 1,000 writes per second.
 - At a 100 to 1 read-to-write ratio: about 100,000 reads per second.
@@ -69,4 +71,4 @@ State your assumptions, round aggressively, and show the division (this is Step 
 
 ## Go deeper
 
-More estimation practice in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+More estimation practice in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-estimation).

@@ -19,6 +19,17 @@ The read touches at least one replica (B) that saw the write, and version number
 
 ## Tuning R and W
 
+The rule is not arbitrary. R plus W greater than N is exactly the condition that forces the two sets to share a replica:
+
+```mermaid
+flowchart TB
+    W["Write, W = 2"] --> A["Replica A"]
+    W --> B["Replica B"]
+    R["Read, R = 2"] --> B
+    R --> C["Replica C"]
+    B -.->|"B is in both sets, so the<br/>read cannot miss the write"| OV["With N = 3, R + W = 4 > 3,<br/>so overlap is guaranteed"]
+```
+
 | Configuration | Effect |
 |---------------|--------|
 | W = N, R = 1 | Fast reads, slow and fragile writes |
@@ -48,5 +59,5 @@ Give the formula (R + W > N) and one concrete configuration. Then show judgment:
 ## Go deeper
 
 - Related deep dives: [Dynamo](../deep-dives/dynamo-key-value-store.md), [Cassandra](../deep-dives/cassandra-wide-column-db.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-quorum)
+- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-quorum)

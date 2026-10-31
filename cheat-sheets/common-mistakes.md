@@ -1,6 +1,21 @@
 # Common mistakes and anti-patterns
 
+> The errors that cost strong candidates the offer, and what to do instead of each one.
+
 The mistakes that sink system design interviews, and how to avoid each. Most are about process and communication, not missing knowledge.
+
+Most of these are not separate errors. They are one chain, and it starts in the first two minutes:
+
+```mermaid
+flowchart TD
+    A["Jump straight into design"] --> B["Skip estimation"]
+    B --> C["Rabbit-hole on one component"]
+    C --> D["Run out of time"]
+    D --> E["Never reach the deep dive"]
+    E --> F["No-hire"]
+    G["The fix, at either point:<br/>scope first, then cover the whole<br/>design before going deep"] -.-> A
+    G -.-> C
+```
 
 | Mistake | Why it hurts | The fix |
 |---------|--------------|---------|
@@ -22,5 +37,5 @@ Most failed system design interviews are not about missing knowledge. They are a
 
 ## Go deeper
 
-- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-common-mistakes)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-common-mistakes)

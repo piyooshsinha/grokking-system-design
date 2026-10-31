@@ -1,5 +1,7 @@
 # REST vs gRPC vs GraphQL
 
+> Choose an API style by who the client is, and whether you control it.
+
 How to choose an API style, and how to justify it in an interview. The decision is mostly about who the client is: a browser you do not control, a service you do, or a product team iterating on screens.
 
 ## Quick comparison
@@ -15,6 +17,18 @@ How to choose an API style, and how to justify it in an interview. The decision 
 | Failure surface | Simple | Simple | Query cost varies wildly per request |
 
 ## How to choose
+
+The decision is mostly about who the client is:
+
+```mermaid
+flowchart TD
+    A{"Who is the client?"} -->|"public or third party,<br/>and a CDN should cache it"| R["REST"]
+    A -->|"another service<br/>inside your backend"| G["gRPC"]
+    A -->|"many client shapes, screens<br/>that aggregate several resources"| Q["GraphQL"]
+    R --> M["Mixed is normal, and worth saying:<br/>gRPC inside, REST or GraphQL at the edge,<br/>translated by an API gateway"]
+    G --> M
+    Q --> M
+```
 
 1. Public-facing API, third-party consumers, or anything a CDN should [cache](../patterns/cdn.md) → REST. Ubiquity and HTTP semantics (status codes, caching, retries) are the feature.
 2. Service-to-service inside your backend → gRPC. Typed contracts stop drift between teams, binary encoding cuts latency and cost, and streaming is native. This is the default answer for internal microservices.
@@ -34,5 +48,5 @@ Do not say "GraphQL is more modern than REST". Say "the mobile home screen aggre
 
 ## Go deeper
 
-- Free article: [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Free article: [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rest-vs-grpc-vs-graphql)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rest-vs-grpc-vs-graphql)

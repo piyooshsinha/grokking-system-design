@@ -6,6 +6,20 @@ Functional requirements say what the system does (post a tweet, book a ride). No
 
 ## The core qualities
 
+Each quality forces a concrete piece of the design. That is why stating them early is worth so much:
+
+```mermaid
+flowchart LR
+    NFR["Non-functional<br/>requirement"] --> SC["Scalability"]
+    NFR --> AV["Availability"]
+    NFR --> LA["Latency"]
+    NFR --> CO["Consistency"]
+    SC -->|forces| SC2["Sharding and replication"]
+    AV -->|forces| AV2["Redundancy and failover,<br/>no single point of failure"]
+    LA -->|forces| LA2["Caching, a CDN,<br/>and a decision about geography"]
+    CO -->|forces| CO2["Quorums, or an explicit<br/>staleness budget"]
+```
+
 | Quality | The question it answers | What it drives |
 |---------|-------------------------|----------------|
 | Scalability | Can it handle growth in users, data, and traffic? | Sharding, replication, stateless services |
@@ -45,5 +59,5 @@ State the non-functional requirements explicitly before you design, and put numb
 
 ## Go deeper
 
-- Read more (free): [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability), [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-non-functional-requirements), [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-non-functional-requirements)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-non-functional-requirements)

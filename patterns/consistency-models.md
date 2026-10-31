@@ -8,6 +8,17 @@ A consistency model defines how up to date and ordered reads are across replicas
 
 ## The spectrum (strong to weak)
 
+The models form one line, and moving along it is always the same trade:
+
+```mermaid
+flowchart LR
+    L["Linearizable<br/>every read sees<br/>the latest write"] --> SQ["Sequential<br/>everyone sees<br/>the same order"]
+    SQ --> CA["Causal<br/>related writes<br/>stay in order"]
+    CA --> EV["Eventual<br/>replicas converge,<br/>eventually"]
+    L -.-> C1["More coordination:<br/>higher latency,<br/>less availability"]
+    EV -.-> C2["Less coordination:<br/>lower latency,<br/>more availability"]
+```
+
 | Model | What it guarantees |
 |-------|--------------------|
 | Linearizable (strong) | Every read sees the most recent write, as if there were one copy |
@@ -34,7 +45,7 @@ Name the model per piece of data, not for the whole system. Tie it to [replicati
 
 ## Go deeper
 
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)
+- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)

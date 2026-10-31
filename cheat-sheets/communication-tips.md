@@ -1,8 +1,21 @@
 # Interview communication tips
 
+> How to sound like a senior engineer while you are still working the problem out.
+
 The system design round tests how you think and communicate as much as what you know. Here is how to come across as a strong, senior candidate.
 
 ## Drive the conversation
+
+Driving is a loop, not an opening move. You run it once per section of the design:
+
+```mermaid
+flowchart LR
+    A["Say what you are<br/>about to do"] --> B["Do it out loud,<br/>while drawing"]
+    B --> C["Say why you chose it,<br/>and what it costs"]
+    C --> D{"Check in: is this<br/>the direction you want?"}
+    D -->|"interviewer redirects"| A
+    D -->|"no objection"| A
+```
 
 - Use the [interview framework](interview-framework.md) as a visible structure, so the interviewer always knows where you are.
 - State your assumptions out loud and confirm scope before designing.
@@ -33,5 +46,5 @@ The system design round tests how you think and communicate as much as what you 
 
 ## Go deeper
 
-- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-communication-tips)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-communication-tips)

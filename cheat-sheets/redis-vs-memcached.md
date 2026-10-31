@@ -1,5 +1,7 @@
 # Redis vs Memcached
 
+> A pure cache or a data structure server: decide by whether you need more than GET and SET.
+
 How to choose an in-memory store, and how to justify it in an interview. Short version: Memcached is a pure [cache](../patterns/caching.md); Redis is a data-structure server that also caches. If the answer is not obvious, ask whether you need anything besides GET and SET.
 
 ## Quick comparison
@@ -15,6 +17,18 @@ How to choose an in-memory store, and how to justify it in an interview. Short v
 | Memory efficiency for plain strings | Good | Slightly better (simpler allocator, less metadata) |
 
 ## How to choose
+
+Start at the top. The memory question disqualifies both before the comparison even matters:
+
+```mermaid
+flowchart TD
+    A{"Does the working set<br/>fit in memory?"} -->|no| N["Neither. Fix the data model,<br/>or use a disk store"]
+    A -->|yes| B{"Do you need anything<br/>besides GET and SET?"}
+    B -->|no| M["Memcached:<br/>look-aside cache, simplest ops,<br/>highest throughput per node"]
+    B -->|"data structures"| R1["Redis: sorted sets, INCR<br/>with expiry, lists, streams"]
+    B -->|"must survive a restart"| R2["Redis with persistence<br/>and replicas"]
+    B -->|"distributed locks"| R3["Redis: SET NX with expiry"]
+```
 
 1. Pure look-aside cache for serialized blobs, biggest possible throughput per node, simplest ops → Memcached. This is the [Facebook use case](../deep-dives/memcached-at-facebook.md).
 2. You need the data structures → Redis, and name the mapping: sorted sets for leaderboards, INCR with expiry for [rate limiting](../patterns/rate-limiting.md), lists/streams for lightweight queues, sets for presence.
@@ -36,4 +50,4 @@ Do not say "I would add Redis because it is fast". Say "this is a read-heavy fee
 ## Go deeper
 
 - [Caching pattern](../patterns/caching.md) and the [Memcached at Facebook deep dive](../deep-dives/memcached-at-facebook.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-redis-vs-memcached)

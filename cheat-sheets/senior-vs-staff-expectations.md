@@ -1,8 +1,21 @@
 # Senior vs staff: how the same question is graded differently
 
+> The same question, graded differently by level, and what the interviewer listens for at each one.
+
 The question does not change with level; the grading does. "Design a notification system" is asked at every level from mid to staff+. What changes is who drives, how much ambiguity you are expected to resolve yourself, and how deep the trade-off reasoning goes. Interviewers rarely say this out loud, which is why strong senior candidates get downleveled: they gave a clean mid-level performance.
 
 ## The one-line summary per level
+
+What moves between levels is not the design. It is who is driving:
+
+```mermaid
+flowchart TB
+    M["Mid<br/>Can they design a working<br/>system with guidance?"] -->|"you stop needing<br/>to be steered"| S["Senior<br/>Can they own this end to end,<br/>failure modes included?"]
+    S -->|"you start questioning<br/>the problem itself"| ST["Staff<br/>Would I trust this decision<br/>for a whole org?"]
+    D1["The interviewer drives"] -.-> M
+    D2["You drive"] -.-> S
+    D3["You decide whether it<br/>should be built at all"] -.-> ST
+```
 
 | Level | What the interviewer is asking themselves |
 |-------|-------------------------------------------|
@@ -51,5 +64,5 @@ Take [design a notification system](../questions/design-notification-system.md).
 ## Go deeper
 
 - Company-by-company expectations: [company-specific interviews](../companies/README.md)
-- Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-senior-vs-staff-expectations)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-senior-vs-staff-expectations)

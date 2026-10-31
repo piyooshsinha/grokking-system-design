@@ -1,5 +1,7 @@
 # PostgreSQL vs DynamoDB vs Cassandra
 
+> The SQL versus NoSQL argument made concrete, with three real stores and the access patterns each one fits.
+
 How to choose between the three stores that cover most interview answers: a relational database, a managed key-value service, and a write-optimized wide-column store. This is [SQL vs NoSQL](sql-vs-nosql.md) made concrete.
 
 ## Quick comparison
@@ -15,6 +17,19 @@ How to choose between the three stores that cover most interview answers: a rela
 | Cost shape | Cheap at small scale | Pay per request; predictable, can get expensive at high volume | Hardware plus expertise |
 
 ## How to choose
+
+Note where this starts. The default is a real answer, not a placeholder:
+
+```mermaid
+flowchart TD
+    A["Default: PostgreSQL"] --> B{"Is access purely by key,<br/>at huge or spiky scale,<br/>with zero ops wanted?"}
+    B -->|yes| D["DynamoDB"]
+    B -->|no| C{"Is write volume<br/>the defining load?"}
+    C -->|yes| CA["Cassandra: an LSM write path<br/>absorbs floods a B-tree cannot"]
+    C -->|no| A2["Stay on PostgreSQL. One instance<br/>plus read replicas goes further<br/>than candidates think"]
+    D --> P["Most real answers are polyglot:<br/>a relational core, with the<br/>append-shaped data elsewhere"]
+    CA --> P
+```
 
 1. Default to PostgreSQL. Relational data, transactions, flexible queries, and decades of tooling cover the majority of systems, and a single beefy instance with read replicas goes further than candidates think (state the number: tens of thousands of transactions per second).
 2. Access is by key, scale is huge or spiky, and you want zero operations → DynamoDB. Sessions, carts, user profiles, anything shaped like "get item by id" ([shopping cart](../questions/design-amazon-shopping-cart.md) territory).
@@ -35,4 +50,5 @@ Do not say "Postgres does not scale, so NoSQL". Say "orders and payments need tr
 ## Go deeper
 
 - Deep dives: [DynamoDB](../deep-dives/dynamodb-managed-nosql.md), [Cassandra](../deep-dives/cassandra-wide-column-db.md), [Dynamo](../deep-dives/dynamo-key-value-store.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Weighing a document store instead? [DynamoDB vs MongoDB](dynamodb-vs-mongodb.md)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-postgres-vs-dynamodb-vs-cassandra)

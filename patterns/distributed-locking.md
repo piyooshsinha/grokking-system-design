@@ -20,6 +20,24 @@ The TTL is the crucial part: without it, a crashed lock holder deadlocks the sys
 
 ## The safety problem
 
+A lock with a timeout can be held by two workers at once. The fencing token is what makes that survivable:
+
+```mermaid
+sequenceDiagram
+    participant W1 as Worker 1
+    participant L as Lock store
+    participant W2 as Worker 2
+    participant R as Resource
+    W1->>L: acquire, TTL 30s, token 33
+    Note over W1: long pause:<br/>GC, or the network
+    Note over L: TTL expires,<br/>the lock is free
+    W2->>L: acquire, token 34
+    W2->>R: write with token 34
+    W1->>R: write with token 33
+    R-->>W1: rejected: 34 was already seen
+    Note over R: without the token, worker 1<br/>would overwrite worker 2
+```
+
 If the holder pauses (GC, slow I/O) past the TTL, the lock expires and a second worker acquires it: now two workers believe they hold the lock. Defenses, in increasing strength:
 
 - **Check ownership on release** so you never delete someone else's lock.
@@ -43,5 +61,5 @@ Give the Redis one-liner for the simple case, then immediately name its weakness
 ## Go deeper
 
 - Related deep dive: [Chubby, Google's distributed lock service](../deep-dives/chubby-distributed-locking.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-distributed-locking)
+- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-distributed-locking)

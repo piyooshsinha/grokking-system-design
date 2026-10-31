@@ -1,5 +1,7 @@
 # Kafka vs RabbitMQ vs SQS
 
+> A log, a broker, or a managed queue: choose by what the consumer needs, not by brand.
+
 How to choose a messaging system, and how to justify it in an interview. They are not three brands of the same thing: Kafka is a replicated log, RabbitMQ is a smart broker, SQS is a managed queue. Start from what the consumer needs.
 
 ## Quick comparison
@@ -24,6 +26,19 @@ Ask: do messages need to be replayed or consumed by multiple independent readers
 
 ## How to choose
 
+Start from what the consumer needs, not from the brand:
+
+```mermaid
+flowchart TD
+    A{"What does the<br/>consumer need?"} -->|"replay, and several independent<br/>systems reading the same events"| K["Kafka: a replicated log"]
+    A -->|"one task, done once,<br/>by one worker"| B{"Routing keys, priorities, or a<br/>dead-letter flow you control?"}
+    B -->|no| S["SQS: managed queue"]
+    B -->|yes| R["RabbitMQ: a smart broker"]
+    K --> O["Strict global ordering?<br/>None of them, at scale.<br/>Order holds per partition or per group,<br/>so design keys accordingly"]
+    S --> O
+    R --> O
+```
+
 1. Event stream feeding multiple systems (analytics, search indexing, caches) → Kafka. Consumer groups replay independently; retention is your safety net.
 2. Task/job distribution (emails, thumbnails, work items) → a queue. SQS on AWS, RabbitMQ when you need routing keys, priorities, or dead-letter flows you control.
 3. Event sourcing or audit trail → Kafka; the retained, ordered log is the feature.
@@ -44,4 +59,5 @@ Do not say "I would use Kafka because it is scalable". Say "order events must be
 ## Go deeper
 
 - [Kafka deep dive](../deep-dives/kafka-distributed-messaging.md) and the [message queues pattern](../patterns/message-queues.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Choosing a managed cloud stream instead? [Kafka vs Kinesis vs Pub/Sub](kafka-vs-kinesis-vs-pubsub.md)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-kafka-vs-rabbitmq-vs-sqs)

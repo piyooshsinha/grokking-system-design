@@ -1,5 +1,7 @@
 # A mock interview, annotated: two candidates, one question
 
+> One question answered twice, once as a no-hire and once as a hire, with notes on where each one earned or lost signal.
+
 The same question, played twice: once as a borderline no-hire, once as a strong hire. The margin notes mark where signal was earned or lost. Both transcripts are condensed; a real round is 40 to 45 minutes. The question is [design a rate limiter](../questions/design-rate-limiter.md), and the [interview framework](interview-framework.md) is the structure both candidates should be following.
 
 ---
@@ -94,6 +96,24 @@ The same question, played twice: once as a borderline no-hire, once as a strong 
 
 ## The difference, in one table
 
+The two rounds diverge in the first five minutes and never converge again:
+
+```mermaid
+flowchart LR
+    subgraph A["Candidate A: borderline no-hire"]
+        direction TB
+        A1["Design immediately"] --> A2["Long detour into<br/>one component"]
+        A2 --> A3["Clock gone"]
+        A3 --> A4["No deep dive,<br/>no trade-offs"]
+    end
+    subgraph B["Candidate B: strong hire"]
+        direction TB
+        B1["Scope and assumptions"] --> B2["Numbers that<br/>change a decision"]
+        B2 --> B3["Design, narrated"]
+        B3 --> B4["Deep dive, plus<br/>stated trade-offs"]
+    end
+```
+
 | Moment | Candidate A | Candidate B |
 |--------|-------------|-------------|
 | First 2 minutes | Named an algorithm | Asked 3 questions, derived a latency budget |
@@ -108,5 +128,5 @@ The knowledge gap between the two candidates is small; both knew token bucket an
 ## Practice this
 
 - Run the same drill on any question in the [catalog](../questions/README.md): play Candidate B out loud, unprompted, against a timer.
-- Get graded by a human: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Get graded by a human: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-mock-interview-walkthrough)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-mock-interview-walkthrough)

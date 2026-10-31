@@ -20,6 +20,22 @@ Two common shapes:
 
 ## The timeout trade-off
 
+You are never observing death. You are observing silence, and choosing how long to wait before acting on it:
+
+```mermaid
+sequenceDiagram
+    participant W as Worker
+    participant C as Coordinator
+    W->>C: heartbeat
+    W->>C: heartbeat
+    Note over W: the worker dies,<br/>or the network drops
+    C->>C: 1 missed
+    C->>C: 2 missed
+    C->>C: 5 missed, 10s elapsed
+    Note over C: declare it dead,<br/>reassign its work
+    Note over W,C: a short timeout finds real failures fast<br/>but declares healthy nodes dead.<br/>A long timeout does the reverse
+```
+
 The detection timeout is the whole game:
 
 | Timeout | Consequence |
@@ -42,5 +58,5 @@ Whenever you say "if the server fails, we fail over," the interviewer's next que
 ## Go deeper
 
 - Related deep dives: [GFS](../deep-dives/gfs-distributed-file-system.md), [Cassandra](../deep-dives/cassandra-wide-column-db.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-heartbeats)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-heartbeats)

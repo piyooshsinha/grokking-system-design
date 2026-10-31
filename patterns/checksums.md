@@ -19,6 +19,20 @@ The crucial pairing: detection plus **redundancy** equals repair. A checksum alo
 
 ## Where it is used
 
+The value of a checksum is not detection on its own. It is that detection turns a silent failure into a repairable one:
+
+```mermaid
+flowchart TB
+    W["Writer"] -->|"store data plus<br/>its checksum"| D[("Replica A")]
+    W --> D2[("Replica B")]
+    R["Reader"] -->|"read"| D
+    D -->|"recompute the checksum"| CK{"does it match?"}
+    CK -->|yes| OK["serve the data"]
+    CK -->|no| BAD["silent corruption,<br/>now visible"]
+    BAD -->|"fetch a known-good copy"| D2
+    D2 -->|"re-replicate over<br/>the bad block"| D
+```
+
 - Storage: per-block checksums in HDFS, GFS, ZFS; verify on read, repair from a healthy replica.
 - Network transfer: verifying file uploads and downloads end to end (TCP's checksum is weak; applications add their own).
 - Content addressing: when the checksum of the content is also its identifier (Git objects, S3 ETags, Docker layers), integrity checking and deduplication come for free.
@@ -39,5 +53,5 @@ Checksums come up in file storage, upload, and data pipeline designs. One strong
 ## Go deeper
 
 - Related deep dives: [GFS](../deep-dives/gfs-distributed-file-system.md), [HDFS](../deep-dives/hdfs-file-storage.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-checksums)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-checksums)
