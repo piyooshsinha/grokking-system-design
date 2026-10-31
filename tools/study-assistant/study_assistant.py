@@ -48,7 +48,7 @@ CHAT_MODEL = os.environ.get("SDA_CHAT_MODEL", "llama3.2")
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent  # tools/study-assistant/ -> repo root
-INDEX_PATH = SCRIPT_DIR / "index.json"
+INDEX_PATH = Path(os.environ.get("SDA_INDEX_PATH", SCRIPT_DIR / "index.json"))
 FLASHCARDS_PATH = REPO_ROOT / "cheat-sheets" / "flashcards.md"
 
 # Directories we never index.

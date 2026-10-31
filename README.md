@@ -34,7 +34,7 @@ Each path uses the same rhythm: attempt from a blank page, compare your reasonin
 
 ## Run the local study assistant
 
-The assistant runs on your machine. It indexes the repository, provides keyword search without a model, and can use a local Ollama model for grounded answers, answer grading, spaced repetition, and mock interviews. Mermaid is bundled with the app, so browsing diagrams does not require a CDN.
+The assistant runs on your machine. It indexes the repository, provides keyword search without a model, and can use a local Ollama model for semantic retrieval, grounded answers, answer grading, spaced repetition, and mock interviews. Its diagrams include flow playback, and the CAP page has an interactive partition simulator. Mermaid is bundled with the app, so browsing diagrams does not require a CDN.
 
 ```bash
 cd tools/study-assistant
@@ -42,7 +42,11 @@ python3 study_assistant.py build
 python3 study_assistant.py serve
 ```
 
-The app opens at `http://127.0.0.1:8000`. To enable local model features, install [Ollama](https://ollama.com), pull `nomic-embed-text` and `llama3.2`, and rebuild the index. See the [assistant guide](tools/study-assistant/README.md) for configuration and privacy details.
+The app opens at `http://127.0.0.1:8000`. To enable local model features, install [Ollama](https://ollama.com), pull `nomic-embed-text` and a chat model, then rebuild the index. See the [assistant guide](tools/study-assistant/README.md) for configuration and privacy details. To run it in Docker behind the NUC's Caddy proxy, see the [deployment guide](tools/study-assistant/DEPLOYMENT.md).
+
+## Run the reference application
+
+[Seatline](examples/seatline/) is a runnable ticket reservation app. Follow a seat hold through checkout, inventory updates, the transactional outbox, and an idempotent notification worker. It is the concrete companion to the concepts in this guide; the [Seatline README](examples/seatline/README.md) maps each behavior to the code and its study pages. On the NUC, open the [live Seatline demo](https://seatline.192-168-1-22.sslip.io).
 
 ## Repository map
 

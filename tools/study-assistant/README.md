@@ -6,7 +6,7 @@ This is a small [retrieval-augmented generation](../../questions/design-rag-pipe
 
 It comes two ways:
 
-- **A web UI** (`serve`) — browse every resource in a guided order with rendered diagrams, ask the AI about the page you're reading, and quiz yourself. Best for studying.
+- **A web UI** (`serve`) — browse every resource in a guided order, animate flows through rendered diagrams, explore the CAP partition simulator, ask the AI about the page you're reading, and quiz yourself. Best for studying.
 - **A CLI** (`ask` / `chat` / `quiz`) — the same engine from your terminal.
 
 ## Quick start
@@ -32,7 +32,7 @@ flowchart LR
     end
 ```
 
-1. **build** — walks every `.md` file, splits it into heading-sized chunks, and (if Ollama is running) embeds each chunk with `nomic-embed-text`. The result is saved to `index.json` (git-ignored).
+1. **build** — walks every `.md` file, splits it into heading-sized chunks, and (if Ollama is running with `nomic-embed-text`) embeds each chunk. The result is saved to `index.json` (git-ignored).
 2. **ask / chat** — embeds your question, retrieves the most similar chunks (cosine similarity), and streams an answer from `llama3.2` constrained to that context, with `[file.md]` citations.
 3. **quiz** — turns the flashcards into an interactive drill and (with Ollama) grades your answers.
 4. **serve** — a local web server that puts all of the above behind a browser UI (below).
@@ -43,7 +43,7 @@ flowchart LR
 
 `python3 study_assistant.py serve` launches a local study app at `http://127.0.0.1:8000` with three things side by side:
 
-1. **A guided resource browser.** A sidebar lists every page — fundamentals, patterns, guides, questions, low-level design, cheat sheets, deep dives — in a sensible learning order. Click through, use **Previous / Next** (or the `j` / `k` keys) to go one by one, or hit `/` to **search** every page by title and heading. Markdown renders with tables and code, Mermaid diagrams render as real diagrams, and a progress bar tracks how much you've covered (saved in your browser).
+1. **A guided resource browser.** A sidebar lists every page — fundamentals, patterns, guides, questions, low-level design, cheat sheets, deep dives — in a sensible learning order. Click through, use **Previous / Next** (or the `j` / `k` keys) to go one by one, or hit `/` to **search** every page by title and heading. Markdown renders with tables and code, Mermaid diagrams include play/step controls that trace their nodes and links, and a progress bar tracks how much you've covered (saved in your browser). The CAP theorem page includes a two-region simulator for CP/AP behavior during a partition and after the link recovers.
 2. **"Ask" panel.** Ask about the page you're reading and get an answer grounded in the repo, with clickable source citations. Quick chips cover "Explain simply", "Analogy", "Trade-offs", and "Gotchas". Without a local model it shows the most relevant sections instead.
 3. **"Quiz" panel with spaced repetition.** Pull flashcards for the current topic (or **Review due** across every topic) and test yourself; with a local model, your typed answers get graded. After each card you rate yourself **Again / Hard / Good / Easy**, and a lightweight SM-2/Leitner scheduler (kept in your browser) decides when to resurface it — so you drill what you keep missing. "Question from page" has the model write a fresh question from what you're reading.
 4. **"Interview" panel — a mock interview.** The local model plays the interviewer: it opens on the current topic, asks one question at a time, and probes the scale, bottlenecks, and trade-offs you gloss over. Hit **Score me** and it grades the whole transcript against the [interview framework](../../cheat-sheets/interview-framework.md) — verdict, what you covered well, gaps, and what to practice next. (Needs a local model; without one it points you to the framework to self-drive.)

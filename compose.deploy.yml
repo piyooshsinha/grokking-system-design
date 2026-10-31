@@ -1,0 +1,27 @@
+services:
+  systems-workbench:
+    build: .
+    container_name: systems-workbench
+    restart: unless-stopped
+    environment:
+      OLLAMA_HOST: http://shelf-ollama:11434
+      SDA_CHAT_MODEL: qwen2.5:3b
+      SDA_INDEX_PATH: /var/lib/workbench/index.json
+    networks:
+      - caddy
+      - ollama
+    volumes:
+      - workbench-index:/var/lib/workbench
+    expose:
+      - "8000"
+
+networks:
+  caddy:
+    external: true
+    name: reverse-proxy_default
+  ollama:
+    external: true
+    name: intelligent-book-shelf_default
+
+volumes:
+  workbench-index:

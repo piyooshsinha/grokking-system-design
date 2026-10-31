@@ -1,0 +1,28 @@
+services:
+  seatline:
+    build: .
+    container_name: seatline
+    restart: unless-stopped
+    environment:
+      PORT: "8090"
+      SEATLINE_DB: /data/seatline.sqlite3
+      SEATLINE_HOLD_SECONDS: "300"
+    volumes:
+      - seatline-data:/data
+    expose:
+      - "8090"
+    networks:
+      - caddy
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/api/health', timeout=2)"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+
+networks:
+  caddy:
+    external: true
+    name: reverse-proxy_default
+
+volumes:
+  seatline-data:

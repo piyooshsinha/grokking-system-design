@@ -15,6 +15,7 @@ build/
 
 # Study assistant (tools/study-assistant): generated index + Python artifacts
 tools/study-assistant/index.json
+examples/seatline/data/
 __pycache__/
 *.pyc
 .venv/
