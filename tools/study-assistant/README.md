@@ -1,4 +1,4 @@
-# Study assistant — a local, offline AI tutor for this repo
+# Systems Workbench tutor — a local, offline study assistant
 
 > Ask questions about system design and get answers grounded in *this* repository, with citations — running entirely on your own machine. No API keys, no data leaves your laptop.
 

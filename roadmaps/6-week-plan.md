@@ -2,6 +2,8 @@
 
 > Build real depth from a baseline at about an hour a day, covering all 30 patterns and all 19 deep dives.
 
+Use [SCOPE](../guides/scope-method.md) as the practice method throughout: learn a concept, explain the constraint it addresses, then probe it in a complete design.
+
 A thorough plan for building real depth from a baseline. Assumes about 1 hour per day. If you have less time, see the [2-week sprint](2-week-plan.md) or the [1-week crash plan](1-week-plan.md). If you have interviewed before and are rusty rather than new, use the [senior and staff refresher](senior-staff-refresher.md) instead, which starts by finding your gaps rather than covering everything.
 
 Six weeks is enough to cover all 30 patterns, roughly 20 questions, and the 19 deep dives, with time left for mock interviews. The plan front-loads the material you use in every answer and leaves the specialized material for later, so that if you run out of time in week 5 you have still covered what matters most.
@@ -73,9 +75,9 @@ If you are interviewing for a mid-level role, groups 1 to 4 are enough. Groups 5
 
 ### Week 6: Mocks and polish
 
-Do timed [mock interviews](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan), review your weak spots, re-read [common mistakes](../cheat-sheets/common-mistakes.md) and [communication tips](../cheat-sheets/communication-tips.md), and prepare for your target company.
+Do timed peer mocks or record yourself with unfamiliar prompts from the [question catalog](../questions/). Review your weak spots, re-read [common mistakes](../cheat-sheets/common-mistakes.md) and [communication tips](../cheat-sheets/communication-tips.md), and prepare for your target company.
 
-Run at least three timed mocks this week, not one. The first one usually goes badly for reasons that have nothing to do with knowledge, and you want that to happen before the real round.
+Run at least three timed rehearsals this week, not one. The first recording gives you a baseline; the next two show whether your changes made the answer clearer.
 
 Check how your target company runs the round in the [company index](../companies/README.md), and read [senior vs staff expectations](../cheat-sheets/senior-vs-staff-expectations.md) so you are aiming at the right bar. Finish with the [flashcards](../cheat-sheets/flashcards.md) to find any recall gaps.
 
@@ -97,7 +99,6 @@ Do not drop week 1 or week 2, and do not drop the mock interviews. The framework
 - Keep a log of what you missed after each question, and revisit it.
 - Re-explaining a pattern from memory is worth more than reading it a second time. If you cannot explain it without the page open, you have not learned it yet.
 
-## Go deeper
+## Keep building depth
 
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan)
+Choose a new prompt from the [question catalog](../questions/) and write down the assumptions that distinguish your design from the walkthrough. Revisit [SCOPE](../guides/scope-method.md) when a decision feels like a default rather than a response to a constraint.

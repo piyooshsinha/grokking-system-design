@@ -1,6 +1,6 @@
 # Question catalog
 
-Classic system design interview questions. Each walkthrough stays at the level of approach, key decisions, and trade-offs. For full, worked, interactive solutions, see the courses linked in each file.
+Practice prompts for learning to design under constraints. Each walkthrough shows one defensible approach, its assumptions, and the trade-offs it creates. Treat it as material to critique: a changed requirement may lead to a different design.
 
 Want to self-test without solutions? Use the [practice question bank](practice-bank.md).
 
@@ -21,7 +21,7 @@ Want to self-test without solutions? Use the [practice question bank](practice-b
 
 ## Advanced questions
 
-Deeper problems, mapped to the [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme) topics.
+Deeper problems that combine several patterns or demand stronger reasoning about correctness, scale, and recovery.
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|
@@ -39,7 +39,7 @@ Deeper problems, mapped to the [Advanced System Design Interview, Volume II](htt
 
 ## More systems
 
-A broad set of commonly-asked systems, mapped to the [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
+A broad set of systems for applying the same design method across different product domains.
 
 | Question | Key idea |
 |----------|----------|
@@ -76,7 +76,7 @@ A broad set of commonly-asked systems, mapped to the [System Design Interview Cr
 
 ## AI and LLM systems
 
-The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
+AI and infrastructure prompts focus on changing workloads, expensive compute, retrieval quality, and operational limits.
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|
@@ -94,3 +94,5 @@ The fastest-growing question category. AI labs and AI-infrastructure companies (
 1. Copy [_template.md](_template.md) to `questions/design-your-system.md`.
 2. Fill in each section. Keep it at the approach and trade-offs level.
 3. Add a row above.
+
+Before reading a walkthrough, attempt the prompt from a blank page with [SCOPE](../guides/scope-method.md). Compare the assumptions and failure behavior, not just the component names.

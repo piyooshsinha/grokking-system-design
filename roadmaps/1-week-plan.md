@@ -1,6 +1,6 @@
-# 1-week crash plan
+# One-week triage
 
-> Triage for an interview a few days away, at two to three hours a day: the essentials and practice, nothing else.
+> A focused seven-day plan for building a repeatable answer structure and rehearsing a few complete designs.
 
 For when your interview is just days away. Assumes 2 to 3 hours per day. This is triage: cover the essentials and practice, do not try to learn everything.
 
@@ -15,6 +15,8 @@ flowchart LR
 
 ## The plan
 
+Use [SCOPE](../guides/scope-method.md) as the through-line: say what must be true, estimate the load, sketch the simplest path, probe a failure, and explain what would make you evolve the design.
+
 | Day | Focus |
 |-----|-------|
 | 1 | [Interview framework](../cheat-sheets/interview-framework.md), [estimation](../cheat-sheets/estimation.md), [non-functional requirements](../cheat-sheets/non-functional-requirements.md) |
@@ -23,7 +25,7 @@ flowchart LR
 | 4 | Practice: [Design TinyURL](../questions/design-tinyurl.md) and [Design Instagram](../questions/design-instagram.md) |
 | 5 | Practice: [Design WhatsApp](../questions/design-whatsapp.md) and [Design Uber](../questions/design-uber.md) |
 | 6 | One hard question ([Netflix](../questions/design-netflix.md) or [Dropbox](../questions/design-dropbox.md)), then review [trade-offs](../cheat-sheets/trade-offs.md) and [common mistakes](../cheat-sheets/common-mistakes.md) |
-| 7 | A timed [mock interview](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan), then review your weak spots |
+| 7 | A timed rehearsal from a blank page, then review your recording and choose one weak spot to redo |
 
 ## How to spend each day
 
@@ -35,7 +37,7 @@ flowchart LR
 
 **Day 6 also earns its keep from the review.** [Common mistakes](../cheat-sheets/common-mistakes.md) is the fastest read in the repo relative to what it saves you, because most of what sinks candidates at this point is process, not knowledge.
 
-**Day 7 should feel like the real round.** If you can, do a real [mock interview](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan) with another person. If you cannot, record yourself answering a question you have not practiced and watch it back with [communication tips](../cheat-sheets/communication-tips.md) open.
+**Day 7 should feel like the real round.** Ask another person to give you an unfamiliar prompt, or record yourself answering one from the [question catalog](../questions/). Review it with [communication tips](../cheat-sheets/communication-tips.md) open.
 
 ## What to skip this week
 
@@ -57,7 +59,6 @@ Do not learn anything new. Re-read [system design in one page](../cheat-sheets/s
 - Read the [communication tips](../cheat-sheets/communication-tips.md). Under time pressure, how you communicate matters more than ever.
 - Check how your target company runs the round in the [company index](../companies/README.md). It takes five minutes and it tells you which of these days to weight.
 
-## Go deeper
+## Continue after the interview
 
-- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan)
+Use the [six-week foundation](6-week-plan.md) to fill knowledge gaps without the deadline pressure.

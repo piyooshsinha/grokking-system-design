@@ -1,4 +1,4 @@
-# 2-week system design sprint
+# Two-week design sprint
 
 > A focused sprint at one to two hours a day, for an interview a couple of weeks out.
 
@@ -20,6 +20,8 @@ flowchart LR
 ```
 
 ## Week 1: build the foundation
+
+Use [SCOPE](../guides/scope-method.md) in each exercise. Week 1 builds the vocabulary for each move; week 2 practices moving through all five under time pressure.
 
 | Day | Focus |
 |-----|-------|
@@ -44,7 +46,7 @@ Day 7 is a test, not a reading day. Re-reading feels like progress and produces 
 | 10 | [Design WhatsApp](../questions/design-whatsapp.md) (a real-time chat system) |
 | 11 | [Design Uber](../questions/design-uber.md) (a geo system) |
 | 12 | [Design a web crawler](../questions/design-web-crawler.md) or a [notification system](../questions/design-notification-system.md) |
-| 13 | A timed [mock interview](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan) under real conditions |
+| 13 | A timed peer mock, or record yourself answering an unfamiliar prompt from the [question catalog](../questions/) |
 | 14 | Review your weak spots and redo one question |
 
 Run every one of these days the same way: 45-minute timer, blank page, talking out loud the whole time, page closed. Open the walkthrough only when the timer stops, and write down the difference. The five questions are chosen to cover five different shapes, so the point is not to memorize five answers. It is to notice that the framework carries you through all of them.
@@ -66,9 +68,8 @@ This plan covers 11 of the 30 patterns. The other 19 are not unimportant, they j
 - Browse the full [question catalog](../questions/) for more practice.
 - For senior or staff roles, skim the [deep dives](../deep-dives/) index. There are 19; the first six in its reading order (GFS, BigTable, Dynamo, HDFS, Cassandra, ZooKeeper) give you the most coverage for the time.
 - Read [senior vs staff expectations](../cheat-sheets/senior-vs-staff-expectations.md) before your mock, so you know which bar you are being graded against.
-- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan).
+- Practice live: ask a peer to give you an unfamiliar prompt, or record a timed answer and review it with the [SCOPE review](../guides/scope-method.md#the-scope-review).
 
-## Go deeper
+## Continue after the interview
 
-- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan)
+Use the [six-week foundation](6-week-plan.md) to turn any gaps from your practice into a longer study plan.

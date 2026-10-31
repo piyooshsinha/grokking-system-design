@@ -43,8 +43,6 @@ flowchart LR
 
 Once these are intuitive, move on to the [core patterns](../patterns/), then practice with the [question catalog](../questions/), and see the ideas at planet scale in the [deep dives](../deep-dives/).
 
-## Go deeper
+## Practice the fundamentals
 
-- Read more (free): [25 Fundamental System Design Concepts](https://www.designgurus.io/blog/system-design-interview-fundamentals)
-- Start from zero: [Grokking System Design Fundamentals](https://www.designgurus.io/course/grokking-system-design-fundamentals)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+For each concept, name the user-visible consequence and the design decision it changes. Then use [SCOPE](../guides/scope-method.md) to apply that reasoning to a complete system.

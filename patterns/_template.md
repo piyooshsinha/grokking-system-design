@@ -8,8 +8,8 @@ Explain the concept in plain language and how it works.
 
 ## When to use it
 
-- Describe the workload or requirement that makes this useful.
-- Name a case where it would be a poor fit.
+- Describe the workload or requirement that makes this useful, and what evidence would justify adding it.
+- Name a case where it would be a poor fit and the operational cost it adds.
 
 ## How it works
 

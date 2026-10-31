@@ -4,7 +4,7 @@
 
 ## Problem and scope
 
-State the main use cases, out-of-scope behavior, and assumptions you need the interviewer to confirm.
+Use [SCOPE](../guides/scope-method.md) to state the user promise, main use cases, out-of-scope behavior, and assumptions you need to confirm. Explain which answers would change the design.
 
 ## Requirements
 

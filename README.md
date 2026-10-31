@@ -1,30 +1,36 @@
-# System Design Learning Lab
+# Systems Workbench
 
-> A practical, open learning path for system design interviews, from core concepts to design practice.
+> Start with a constraint. Build the smallest design that meets it. Stress it, then evolve it.
 
-This repository brings together system design fundamentals, reusable architecture patterns, interview exercises, and a local study tool. It is built for people who want to understand design decisions, practice explaining trade-offs, and revisit the areas they find difficult.
+Systems Workbench is a hands-on guide to making and defending system design decisions. Learn the forces behind a design, sketch the smallest useful architecture, and test it against load and failure. The material is open, practical, and paired with a local study tutor.
 
 ## Why this project exists
 
-This fork started from the open Grokking System Design repository. It exists to connect its interview practice with the broader topic map of the System Design Primer, then add a local-first study app and an object-oriented design track. The result is one study path for learning concepts, applying them to a design, and practicing how to explain trade-offs. Examples show defensible approaches, not universal or official answers.
+System design material often presents a list of components before making the constraints clear. Systems Workbench teaches the reasoning in the other direction: define what must be true, estimate what the system must handle, draw a simple path, and add complexity only when a concrete limit demands it. It combines interview practice with an original decision method, a local-first tutor, and class-level design exercises. Worked examples are starting points to critique, not universal or official answers.
 
 ## What you can do here
 
 - **Learn the foundations:** latency, throughput, consistency, availability, databases, communication, and security in [fundamentals](fundamentals/).
 - **Understand reusable decisions:** caching, partitioning, replication, messaging, rate limiting, and other [patterns](patterns/).
+- **Use one repeatable method:** apply [SCOPE](guides/scope-method.md)—Specify, Calculate, Outline, Probe, Evolve—to unfamiliar design problems.
 - **Practice high-level design:** use the [question catalog](questions/), [practice bank](questions/practice-bank.md), and [interview framework](cheat-sheets/interview-framework.md).
 - **Practice object-oriented design:** work through class-level problems in [low-level design](low-level-design/).
 - **Study real systems:** read [distributed-systems deep dives](deep-dives/) and the [scaling walkthrough](guides/scaling-to-millions-of-users.md).
 - **Prepare with company notes:** use the [company guides](companies/) as leads for what to research and rehearse. Interview formats vary by team and change over time; reported questions are not guarantees.
 - **Use a local study tutor:** browse, search, quiz, and run mock interviews with the [study assistant](tools/study-assistant/).
 
-## A suggested study path
+## Choose your path
 
-1. Start with the [interview framework](cheat-sheets/interview-framework.md) and [fundamentals](fundamentals/).
-2. Learn the [core patterns](patterns/), using the [scaling walkthrough](guides/scaling-to-millions-of-users.md) to see how they combine.
-3. Pick a problem from the [question catalog](questions/). State assumptions, sketch a design, and explain the trade-offs before reading the walkthrough.
-4. Use the [roadmaps](roadmaps/) to plan your study time, then revisit weak areas with [flashcards](cheat-sheets/flashcards.md) or the study assistant.
-5. For class-level design, follow the [low-level design guide](low-level-design/README.md).
+| Your situation | Start here |
+|---|---|
+| New to system design | [Six-week foundation](roadmaps/6-week-plan.md): learn the vocabulary, then practice one decision at a time. |
+| Interview in about two weeks | [Two-week sprint](roadmaps/2-week-plan.md): focus on core patterns and timed practice. |
+| Interview in seven days | [One-week triage](roadmaps/1-week-plan.md): prioritize a reliable structure and a few complete rehearsals. |
+| Experienced but rusty | [Senior and staff refresher](roadmaps/senior-staff-refresher.md): diagnose gaps, then review only what you need. |
+| Want to understand the method first | Read [SCOPE](guides/scope-method.md), then try it on [notification delivery](guides/scope-notifications-worked-example.md). |
+| Preparing for class-level design | Follow the [low-level design guide](low-level-design/README.md). |
+
+Each path uses the same rhythm: attempt from a blank page, compare your reasoning with an example, and write down one assumption you would change.
 
 ## Run the local study assistant
 
@@ -45,6 +51,7 @@ The app opens at `http://127.0.0.1:8000`. To enable local model features, instal
 | [fundamentals/](fundamentals/) | Concepts and constraints behind design choices |
 | [patterns/](patterns/) | Reusable architecture techniques |
 | [questions/](questions/) | High-level design practice problems |
+| [guides/](guides/) | SCOPE method, worked examples, and end-to-end walkthroughs |
 | [low-level-design/](low-level-design/) | Object-oriented and class-design exercises |
 | [deep-dives/](deep-dives/) | How important distributed systems work |
 | [companies/](companies/) | Interview preparation notes by company |
@@ -55,12 +62,12 @@ The app opens at `http://127.0.0.1:8000`. To enable local model features, instal
 
 ## Sources and credit
 
-This project was informed by two open learning resources:
+Systems Workbench is an independent learning project. Its starting references include:
 
 - [Grokking System Design](https://github.com/design-gurus/grokking-system-design), published by DesignGurus.io.
 - [The System Design Primer](https://github.com/donnemartin/system-design-primer), created by Donne Martin and contributors.
 
-Both source repositories publish content under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This project reorganizes and extends ideas from those references with its own study paths, exercises, and tools. Where material is directly adapted, the relevant source and changes should be credited. This project is independent and is not affiliated with or endorsed by either source. See [NOTICE.md](NOTICE.md) for attribution details.
+Both source repositories publish content under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This project adds its own method, study paths, examples, exercises, and tools. Where material is directly adapted, the relevant source and changes should be credited. Systems Workbench is not affiliated with or endorsed by either source. See [NOTICE.md](NOTICE.md) for attribution details.
 
 ## Contributing
 

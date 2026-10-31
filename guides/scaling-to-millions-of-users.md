@@ -188,5 +188,4 @@ Notice the pattern behind the pattern: **each stage is triggered by a specific, 
 ## Go deeper
 
 - Practice this end to end on real problems in the [question catalog](../questions/).
-- Read more (free): [System Design Interview Guide (2026)](https://www.designgurus.io/blog/complete-guide-sys-design)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Use [SCOPE](scope-method.md) to decide which limit should trigger the next architectural change.

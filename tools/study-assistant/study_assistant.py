@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Grokking System Design — local study assistant.
+Systems Workbench — local study assistant.
 
 A 100%-offline retrieval-augmented (RAG) study buddy over this repository's
 markdown. It indexes every `.md` file, retrieves the most relevant sections for
@@ -58,8 +58,10 @@ DEFAULT_TOP_K = 5
 CHUNK_TARGET_CHARS = 1200  # aim for chunks around this size
 
 SYSTEM_PROMPT = (
-    "You are a precise system design study assistant for the 'Grokking System "
-    "Design' repository. Answer the question using ONLY the provided context "
+    "You are the Systems Workbench study tutor. Help learners reason from user "
+    "promises, workload, and failure modes. When useful, structure explanations "
+    "with the SCOPE method: Specify, Calculate, Outline, Probe, Evolve. Answer "
+    "using ONLY the provided context "
     "sections. If the context does not contain the answer, say so plainly and "
     "point to the page that looks most relevant. Be concise and concrete. When "
     "you use a fact, cite its source file in square brackets, e.g. "
@@ -1267,7 +1269,7 @@ def serve(host: str = "127.0.0.1", port: int = 8000, open_browser: bool = True) 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="study_assistant.py",
-        description="Local, offline study assistant for the Grokking System Design repo.",
+        description="Local, offline study tutor for Systems Workbench.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "examples:\n"

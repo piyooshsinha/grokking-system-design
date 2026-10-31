@@ -97,7 +97,6 @@ The [questions](../questions/) apply the patterns end to end, and the [deep dive
 2. Fill in each section, including the one-line summary directly under the title.
 3. Add a row to the right table above and, if it is a core pattern, to the table in the root [README](../README.md).
 
-## Go deeper
+## Practice a pattern
 
-- Every pattern in depth, with interactive diagrams: [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-readme)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-readme)
+Use [SCOPE](../guides/scope-method.md) to explain what constraint makes a pattern useful, what new failure mode it introduces, and what evidence would justify adopting it. Then apply it to a question in the [catalog](../questions/).

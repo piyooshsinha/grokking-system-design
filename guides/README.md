@@ -1,16 +1,15 @@
-# Guides: end-to-end walkthroughs
+# Guides
 
-Longer-form walkthroughs that tie the [fundamentals](../fundamentals/) and [patterns](../patterns/) together into a single story. Where a pattern page teaches one building block, a guide shows how the blocks combine as a real system grows.
+> Guides connect design principles to a complete system, then show how to test and evolve the result.
 
-| Guide | What it covers |
-|-------|----------------|
-| [Scaling from one user to millions](scaling-to-millions-of-users.md) | The evolution of an architecture, stage by stage: single server → load balancer → replicas → cache → CDN → sharding → async workers → multi-region. Every step is triggered by a named bottleneck and fixed with a pattern. |
+Start with [SCOPE](scope-method.md), the Systems Workbench method for moving from a user promise to a design that has been probed against its limits. Read the worked example to see each move in context.
 
-## How to use these
+| Guide | What it teaches |
+|---|---|
+| [SCOPE: a constraint-first design method](scope-method.md) | A repeatable way to specify, estimate, outline, probe, and evolve a design. |
+| [SCOPE example: notification delivery](scope-notifications-worked-example.md) | An original worked example covering estimates, idempotency, retries, and deliberate scaling. |
+| [Scaling from one user to millions](scaling-to-millions-of-users.md) | How architecture can change as workload and bottlenecks change. |
 
-Read a guide after you're comfortable with the [fundamentals](../fundamentals/) and have skimmed the [core patterns](../patterns/). The scaling guide in particular mirrors how a system design interview actually unfolds — you start simple and evolve the design as the interviewer piles on load. Then practice the same motion on real problems in the [question catalog](../questions/).
+## How to practice with a guide
 
-## Go deeper
-
-- Read more (free): [System Design Interview Guide (2026)](https://www.designgurus.io/blog/complete-guide-sys-design)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+Read the prompt and requirements, pause before the worked design, and draw your own first version. Then compare the assumptions, trace one request, and identify a failure that changes what a user sees. If your design differs, explain which constraint led you to a different choice.
