@@ -2,6 +2,15 @@
 
 > A data structure that lets the database find rows by a key without scanning the whole table.
 
+```mermaid
+flowchart TB
+    Q["Query: WHERE email = 'x'"] --> I{Index on email?}
+    I -->|yes| B["B-tree lookup<br/>O(log n): walk down to the row"]
+    I -->|no| F["Full table scan<br/>O(n): read every row"]
+    B --> Row[(Matching row)]
+    F --> Row
+```
+
 ## What it is
 
 An index buys reads and charges writes. Both halves belong in the answer:

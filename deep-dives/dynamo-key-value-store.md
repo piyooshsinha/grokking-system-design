@@ -2,6 +2,16 @@
 
 > A store that accepts your write even when the machines that own the key are down, then hands you two versions later.
 
+```mermaid
+flowchart LR
+    C[Client] -->|put / get key| Coord[Coordinator node]
+    Coord -->|consistent hashing ring| R1[(Replica N1)]
+    Coord --> R2[(Replica N2)]
+    Coord --> R3[(Replica N3)]
+    Coord -. W writes, R reads: sloppy quorum + hinted handoff .-> R1
+    R1 -. vector clocks reconcile conflicting versions .-> R2
+```
+
 ## What it is
 
 Dynamo is a key-value store. You save a value under a key, and you read it back by that key. There are no joins, no queries across a range of keys, and no transactions that span keys.

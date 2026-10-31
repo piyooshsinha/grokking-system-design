@@ -607,6 +607,7 @@ SECTION_ORDER = [
     ("Guides", "guides"),
     ("Patterns", "patterns"),
     ("Questions", "questions"),
+    ("Low-level design", "low-level-design"),
     ("Cheat sheets", "cheat-sheets"),
     ("Deep dives", "deep-dives"),
 ]
@@ -665,6 +666,68 @@ def build_toc() -> list[dict]:
 
 def _flat_pages(toc: list[dict]) -> list[str]:
     return [p["path"] for s in toc for p in s["pages"]]
+
+
+_SEARCH_DOCS: list[dict] | None = None
+
+
+def search_docs() -> list[dict]:
+    """Build (once) a lightweight in-memory search index over every markdown
+    file: title, headings, and token counts. Independent of the RAG index, so
+    search works even before `build`."""
+    global _SEARCH_DOCS
+    if _SEARCH_DOCS is not None:
+        return _SEARCH_DOCS
+    docs = []
+    for path in iter_markdown_files(REPO_ROOT):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except Exception:  # noqa: BLE001
+            continue
+        headings = [m.group(2).strip() for ln in text.splitlines()
+                    for m in [_HEADING_RE.match(ln)] if m]
+        title = headings[0] if headings else path.stem
+        head_counts: dict[str, int] = {}
+        for t in tokenize(" ".join(headings)):
+            head_counts[t] = head_counts.get(t, 0) + 1
+        body_counts: dict[str, int] = {}
+        for t in tokenize(text):
+            body_counts[t] = body_counts.get(t, 0) + 1
+        docs.append({
+            "file": str(path.relative_to(REPO_ROOT)),
+            "title": title,
+            "headings": headings,
+            "title_tokens": set(tokenize(title)),
+            "head_counts": head_counts,
+            "body_counts": body_counts,
+        })
+    _SEARCH_DOCS = docs
+    return _SEARCH_DOCS
+
+
+def search(query: str, limit: int = 12) -> list[dict]:
+    """Rank pages for a query over titles (weighted highest), headings, then
+    body. Returns [{file, title, heading}] best-first."""
+    toks = tokenize(query or "")
+    ql = (query or "").strip().lower()
+    if not toks:
+        return []
+    scored = []
+    for d in search_docs():
+        score = 0.0
+        for t in toks:
+            if t in d["title_tokens"]:
+                score += 6
+            score += d["head_counts"].get(t, 0) * 3
+            score += min(d["body_counts"].get(t, 0), 6) * 0.5
+        if ql and ql in d["title"].lower():
+            score += 8
+        if score <= 0:
+            continue
+        heading = next((h for h in d["headings"] if any(t in h.lower() for t in toks)), None)
+        scored.append((score, {"file": d["file"], "title": d["title"], "heading": heading}))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [r for _, r in scored[:limit]]
 
 
 # --- Minimal, dependency-free Markdown -> HTML (for the repo's markdown) ----- #
@@ -893,6 +956,8 @@ class _StudyHandler(BaseHTTPRequestHandler):
         route, qs = u.path, parse_qs(u.query)
         if route in ("/", "/index.html"):
             self._serve_index()
+        elif route.startswith("/vendor/"):
+            self._serve_vendor(route)
         elif route == "/api/status":
             self._api_status()
         elif route == "/api/toc":
@@ -901,6 +966,8 @@ class _StudyHandler(BaseHTTPRequestHandler):
             self._api_page(qs.get("path", [""])[0])
         elif route == "/api/quiz":
             self._api_quiz(qs.get("topic", [None])[0], qs.get("path", [None])[0])
+        elif route == "/api/search":
+            self._api_search(qs.get("q", [""])[0])
         else:
             self._json(404, {"error": "not found"})
 
@@ -913,6 +980,10 @@ class _StudyHandler(BaseHTTPRequestHandler):
             self._api_grade(body)
         elif route == "/api/gen-question":
             self._api_gen_question(body)
+        elif route == "/api/interview":
+            self._api_interview(body)
+        elif route == "/api/interview-score":
+            self._api_interview_score(body)
         else:
             self._json(404, {"error": "not found"})
 
@@ -923,6 +994,19 @@ class _StudyHandler(BaseHTTPRequestHandler):
             self._bytes(500, b"UI file missing (tools/study-assistant/ui/index.html)", "text/plain")
             return
         self._bytes(200, f.read_bytes(), "text/html; charset=utf-8")
+
+    def _serve_vendor(self, route: str):
+        name = route[len("/vendor/"):]
+        if not name or "/" in name or ".." in name:
+            self._json(404, {"error": "not found"})
+            return
+        f = UI_DIR / "vendor" / name
+        if not f.exists():
+            self._json(404, {"error": "not found"})
+            return
+        ctype = "application/javascript; charset=utf-8" if name.endswith(".js") \
+            else ("text/css; charset=utf-8" if name.endswith(".css") else "application/octet-stream")
+        self._bytes(200, f.read_bytes(), ctype)
 
     def _api_status(self):
         models = list_models()
@@ -964,6 +1048,9 @@ class _StudyHandler(BaseHTTPRequestHandler):
             "prev": prev,
             "next": nxt,
         })
+
+    def _api_search(self, q: str):
+        self._json(200, {"results": search(q)})
 
     def _api_quiz(self, topic, path):
         cards = parse_flashcards()
@@ -1068,6 +1155,81 @@ class _StudyHandler(BaseHTTPRequestHandler):
         if "ANSWER:" in out:
             q, a = out.split("ANSWER:", 1)
         self._json(200, {"question": q.strip(), "reference": a.strip(), "generated": True})
+
+    # -- interview mode: the LLM plays the interviewer --
+    def _interview_topic(self, body) -> str:
+        path = body.get("path")
+        if path and (REPO_ROOT / path).exists():
+            return _page_title(REPO_ROOT / path)
+        return body.get("topic") or "system design"
+
+    def _interview_context(self, topic: str) -> str:
+        try:
+            index = get_index()
+        except FileNotFoundError:
+            return ""
+        chunks, _ = retrieve(index, topic, 4, model_present(EMBED_MODEL))
+        return format_context(chunks)
+
+    @staticmethod
+    def _transcript_text(transcript: list, limit: int | None = None) -> str:
+        turns = transcript[-limit:] if limit else transcript
+        return "\n".join(
+            ("Interviewer: " if t.get("role") == "interviewer" else "Candidate: ") + t.get("text", "")
+            for t in turns
+        )
+
+    def _api_interview(self, body):
+        transcript = body.get("transcript") or []
+        topic = self._interview_topic(body)
+        self._stream_open()
+        self._stream({"type": "topic", "topic": topic})
+        if not model_present(CHAT_MODEL):
+            self._stream({"type": "error",
+                          "message": f"Interview Mode needs a local model — run: ollama pull {CHAT_MODEL}"})
+            self._stream({"type": "done"})
+            return
+        context = self._interview_context(topic)
+        convo = self._transcript_text(transcript, limit=12)
+        if not transcript:
+            task = (f"Begin a mock system design interview on: {topic}. Give a one-line framing, "
+                    "then ask your FIRST question (usually clarifying requirements/scope). "
+                    "2-3 sentences total.")
+        else:
+            task = ("Continue as interviewer. Based on the candidate's last answer, ask ONE focused "
+                    "follow-up that probes scale, a bottleneck, or a trade-off they glossed over. "
+                    "Do not lecture or give the answer. 1-3 sentences. If the design is now "
+                    "thoroughly covered, say you're wrapping up and to click 'Score me'.")
+        system = ("You are a senior staff engineer running a rigorous but friendly system design "
+                  "interview. Ask one question at a time. Never hand over the model answer; draw the "
+                  "candidate out. Use the reference notes only to know what a strong answer covers.")
+        prompt = (f"Reference notes (for your eyes only):\n{context}\n\n"
+                  f"Transcript so far:\n{convo or '(none yet)'}\n\n{task}")
+        for frag in generate_stream(prompt, system=system):
+            self._stream({"type": "token", "text": frag})
+        self._stream({"type": "done"})
+
+    def _api_interview_score(self, body):
+        transcript = body.get("transcript") or []
+        topic = self._interview_topic(body)
+        if not model_present(CHAT_MODEL):
+            self._json(200, {"feedback": None, "can_generate": False})
+            return
+        context = self._interview_context(topic)
+        prompt = (
+            f"Reference notes:\n{context}\n\nTopic: {topic}\n\n"
+            f"Full transcript:\n{self._transcript_text(transcript)}\n\n"
+            "Write structured post-interview feedback using these exact markdown headers:\n"
+            "### Verdict\n(Strong hire / Hire / Lean hire / No hire — plus one sentence)\n"
+            "### Covered well\n(bullets, cite what they said)\n"
+            "### Gaps and what to add\n(bullets tied to the framework: requirements, estimation, "
+            "API, data model, high-level design, deep dive, bottlenecks/trade-offs)\n"
+            "### Practice next\n(one concrete bullet)"
+        )
+        system = ("You are a fair, specific, encouraging system design interviewer writing "
+                  "post-interview feedback grounded in what the candidate actually said.")
+        out = "".join(generate_stream(prompt, system=system))
+        self._json(200, {"feedback": out.strip(), "can_generate": True, "topic": topic})
 
 
 def serve(host: str = "127.0.0.1", port: int = 8000, open_browser: bool = True) -> None:

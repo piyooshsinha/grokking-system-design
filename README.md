@@ -19,6 +19,7 @@ Most candidates prepare by memorizing answers to a list of questions, then meet 
 | I have a few weeks | [6-week study plan](roadmaps/6-week-plan.md), working through [patterns/](patterns/) as you go |
 | I am senior and have not interviewed in years | [Senior and staff refresher](roadmaps/senior-staff-refresher.md), which opens with a diagnostic |
 | I have an interview at a named company | [Company guides](companies/README.md), covering 122 companies |
+| I have an object-oriented design round | [Low-level design track](low-level-design/), with six class-design exercises |
 | I just want to practice | [Question catalog](questions/README.md) and the [practice bank](questions/practice-bank.md) |
 
 ## The system design interview framework
@@ -61,7 +62,7 @@ The [fundamentals track](fundamentals/) explains the forces behind design choice
 
 ## Local AI study assistant
 
-The optional [local study assistant](tools/study-assistant/) indexes this repository and can answer questions and quiz you using a local Ollama model. It also works without Ollama, using offline keyword search. Study data stays on your machine; the web UI fetches Mermaid from a public CDN to render diagrams.
+The optional [local study assistant](tools/study-assistant/) indexes this repository and can answer questions and quiz you using a local Ollama model. It also works without Ollama, using offline keyword search. Study data stays on your machine. Mermaid is bundled with the app, so the web UI works without external network requests.
 
 ## Core building blocks (patterns)
 
@@ -99,6 +100,20 @@ The fastest-growing question category, asked heavily by AI labs and increasingly
 [RAG pipeline](questions/design-rag-pipeline.md) · [semantic search](questions/design-semantic-search.md) · [LLM inference platform](questions/design-llm-inference-platform.md) · [model evaluation pipeline](questions/design-model-evaluation-pipeline.md) · [AI agent orchestration](questions/design-ai-agent-orchestration.md) · [GPU cluster scheduler](questions/design-gpu-cluster-scheduler.md) · [AI code assistant](questions/design-code-assistant.md) · [LLM gateway](questions/design-llm-gateway.md)
 
 To add a new question, copy [questions/_template.md](questions/_template.md).
+
+## Low-level design (object-oriented design)
+
+The other interview round: not *how the boxes fit together at scale*, but *how the classes inside one box fit together*. The [low-level design track](low-level-design/) covers the OOD classics — each with a Mermaid class diagram, the key methods, the design patterns it exercises, and the concurrency edge cases:
+
+- [Parking lot](low-level-design/parking-lot.md) — the canonical OOD question (Strategy, Factory, Singleton).
+- [Elevator system](low-level-design/elevator-system.md) — scheduling with the State pattern.
+- [LRU cache](low-level-design/lru-cache.md) — O(1) get/put with a hash map + doubly linked list.
+- [Rate limiter](low-level-design/rate-limiter.md) — the code-level, Strategy-based version.
+- [Vending machine](low-level-design/vending-machine.md) — a finite state machine.
+- [In-memory key-value store](low-level-design/key-value-store.md) — thread-safe, with TTL and eviction.
+
+Start with [how to approach an LLD question](low-level-design/README.md), which covers SOLID and the patterns worth knowing.
+
 
 ## Cheat sheets
 

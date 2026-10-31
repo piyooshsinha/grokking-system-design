@@ -2,6 +2,18 @@
 
 > A tiny replicated file tree, kept in one strict order by a majority vote, that other systems use to decide who is in charge.
 
+```mermaid
+flowchart LR
+    C[Clients] -->|reads served locally| Any[Any server]
+    C -->|writes go to the leader| Le[Leader]
+    subgraph Ensemble[Ensemble — majority quorum]
+      Le --- F1[Follower]
+      Le --- F2[Follower]
+    end
+    Le -. ZAB atomic broadcast .-> F1
+    Any -. watches notify clients on znode change .-> C
+```
+
 ## What it is
 
 ZooKeeper is a small, strongly consistent, replicated store shaped like a file system. It is the open-source answer to Google's [Chubby](chubby-distributed-locking.md).

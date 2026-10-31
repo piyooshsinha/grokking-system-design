@@ -2,6 +2,16 @@
 
 > Consensus cut into three parts you can hold in your head: elect one leader, copy its log, and never elect a leader that is missing a committed entry.
 
+```mermaid
+flowchart LR
+    Cl[Client] -->|command| Le[Leader]
+    Le -->|AppendEntries| F1[Follower]
+    Le -->|AppendEntries| F2[Follower]
+    F1 -. ack .-> Le
+    F2 -. ack .-> Le
+    Le -->|committed once a majority acks| SM[Apply to state machine]
+```
+
 ## What it is
 
 Raft is a consensus algorithm. Consensus means a group of machines agrees on the same sequence of decisions, even while some crash. Raft keeps an identical log (an ordered list of commands) on every server, so the group behaves like one reliable machine.

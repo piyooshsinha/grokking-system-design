@@ -2,6 +2,18 @@
 
 > Amazon's cloud-native relational database, built on one idea: the log is the database, so replicate the log, not the pages.
 
+```mermaid
+flowchart LR
+    P[Primary DB instance] -->|sends log records only| S[Storage service]
+    subgraph Storage[6 copies across 3 AZs]
+      S --- A1[(AZ 1)]
+      S --- A2[(AZ 2)]
+      S --- A3[(AZ 3)]
+    end
+    P -. read replicas share the same storage .-> Rr[Read replica]
+    S -. 4 of 6 write quorum, 3 of 6 read .-> A1
+```
+
 ## What it is
 
 Aurora is a managed relational database from AWS. It runs a MySQL or PostgreSQL compatible engine on top of a storage service that Amazon wrote from scratch.

@@ -2,6 +2,18 @@
 
 > A job runs on a thousand machines for six hours, some of them die while it runs, and nobody has to wake up.
 
+```mermaid
+flowchart LR
+    In[(Input splits)] --> M1[Map]
+    In --> M2[Map]
+    M1 --> Sh[Shuffle + sort by key]
+    M2 --> Sh
+    Sh --> R1[Reduce]
+    Sh --> R2[Reduce]
+    R1 --> Out[(Output)]
+    R2 --> Out
+```
+
 ## What it is
 
 MapReduce is a programming model plus a runtime for processing very large datasets on cheap, ordinary machines. You write two functions. Map turns each input record into key and value pairs. Reduce combines all the values that share one key. The runtime does everything else.

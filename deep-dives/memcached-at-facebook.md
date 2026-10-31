@@ -2,6 +2,15 @@
 
 > A write here does not update the cache. It deletes the entry, and a short token decides which single client is allowed to refill it.
 
+```mermaid
+flowchart LR
+    W[Web servers] -->|1. get| MC[(Memcached pool)]
+    MC -->|hit| W
+    W -->|2. miss, read| DB[(MySQL)]
+    W -->|3. set the value| MC
+    DB -. invalidate keys on write .-> MC
+```
+
 ## What it is
 
 Memcached is a small program. It keeps key and value pairs in memory on one machine, and it does almost nothing else.

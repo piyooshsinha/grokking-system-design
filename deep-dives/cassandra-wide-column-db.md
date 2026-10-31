@@ -2,6 +2,17 @@
 
 > A database with no leader at all: every node is equal, so any node can accept your write and any node can answer your read.
 
+```mermaid
+flowchart LR
+    W[Write] --> CL[(Commit log)]
+    W --> MT[Memtable in RAM]
+    MT -->|flush when full| SS[(SSTables on disk)]
+    SS -->|background| Comp[Compaction merges SSTables]
+    subgraph Ring[Peer-to-peer ring — no leader]
+      N1((Node)) --- N2((Node)) --- N3((Node)) --- N1
+    end
+```
+
 ## What it is
 
 Cassandra joins two famous designs into one system. It takes its distribution (how data spreads across machines and stays available) from [Dynamo](dynamo-key-value-store.md). It takes its storage engine (how data is written on one machine) from [Bigtable](bigtable-wide-column-store.md).

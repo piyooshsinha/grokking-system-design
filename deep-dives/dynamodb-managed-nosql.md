@@ -2,6 +2,15 @@
 
 > A table that answers in a few milliseconds whether it holds ten items or ten billion, because the service removed almost every knob.
 
+```mermaid
+flowchart LR
+    C[Client] --> RR[Request router]
+    RR -->|partition by key| P1[(Partition)]
+    RR --> P2[(Partition)]
+    P1 -. replicated 3x across AZs, Multi-Paxos leader .-> P1r[(Replicas)]
+    P1 -. adaptive capacity auto-splits hot partitions .-> P2
+```
+
 ## What it is
 
 DynamoDB is Amazon's managed key-value and document database. You create a table, write items, and never see a server.

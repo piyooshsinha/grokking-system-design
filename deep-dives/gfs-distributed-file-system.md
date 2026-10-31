@@ -2,6 +2,16 @@
 
 > Files of many gigabytes, written by appending and read from start to end, stored on cheap machines that are expected to break.
 
+```mermaid
+flowchart LR
+    Cl[Client] -->|1. filename to chunk handle| Ma[Master: metadata only]
+    Ma -->|2. chunk locations| Cl
+    Cl -->|3. read / write data directly| CS1[Chunkserver]
+    Cl --> CS2[Chunkserver]
+    CS1 -. each chunk replicated 3x .-> CS2
+    CS2 -.-> CS3[Chunkserver]
+```
+
 ## What it is
 
 GFS stores very large files across thousands of ordinary servers. People hear "file system" and expect something general, and that expectation is the common mistake. GFS is not a general purpose file system. It drops several promises a normal file system makes, and buys one thing in return: high throughput for files that are written once, appended to many times, and read in long sequential passes.

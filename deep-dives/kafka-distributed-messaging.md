@@ -2,6 +2,16 @@
 
 > Every event is written to disk and kept after it is read, which is why Kafka is fast and why you can replay last week.
 
+```mermaid
+flowchart LR
+    P[Producers] -->|append to a partition| L[Partition leader]
+    L -->|replicate| F1[Follower]
+    L -->|replicate| F2[Follower]
+    L --> CG1[Consumer group A]
+    L --> CG2[Consumer group B]
+    CG1 -. each group tracks its own offset .-> L
+```
+
 ## What it is
 
 Kafka is a replicated, partitioned, append-only log. Producers add events to the end of a log. Consumers read forward from a position they pick.

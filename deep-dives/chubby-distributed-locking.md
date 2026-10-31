@@ -2,6 +2,18 @@
 
 > Five machines run Paxos so that thousands of other machines can agree on one leader, one config value, and one address.
 
+```mermaid
+flowchart LR
+    C[Clients] -->|RPC + cached leases| M[Chubby master]
+    subgraph Cell[Chubby cell — 5 replicas]
+      M --- R1[(Replica)]
+      M --- R2[(Replica)]
+      M --- R3[(Replica)]
+    end
+    M -. Paxos replicates the small DB .-> R1
+    R2 -. elect a new master if it fails .-> M
+```
+
 ## What it is
 
 Chubby is a coordination service inside Google. It gives clients two things: advisory locks, and a small file namespace that looks like a filesystem. A path looks like /ls/cell/application/file.

@@ -2,6 +2,16 @@
 
 > One machine remembers where every block lives, a thousand machines hold the bytes, and nothing already written can be changed.
 
+```mermaid
+flowchart LR
+    Cl[Client] -->|which blocks, where| NN[NameNode: metadata]
+    Cl -->|read / write blocks| DN1[DataNode]
+    Cl --> DN2[DataNode]
+    DN1 -. blocks replicated 3x .-> DN2
+    DN2 -.-> DN3[DataNode]
+    DN1 -. block reports + heartbeats .-> NN
+```
+
 ## What it is
 
 HDFS spreads very large files across many ordinary machines. It is an open implementation of the [Google File System](gfs-distributed-file-system.md) design, tuned for batch analytics (jobs that read a whole dataset from start to end).

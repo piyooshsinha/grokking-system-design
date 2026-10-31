@@ -2,6 +2,17 @@
 
 > A table can hold petabytes of rows, and every read into it starts from one place: the row key.
 
+```mermaid
+flowchart TB
+    Client --> TS1[Tablet server]
+    Client --> TS2[Tablet server]
+    Master[Master: assigns tablets] --> TS1
+    Master --> TS2
+    TS1 --> GFS[(GFS: SSTables + logs)]
+    TS2 --> GFS
+    Chubby[Chubby lock service] -. metadata + master election .-> Master
+```
+
 ## What it is
 
 BigTable is a distributed store for structured data. The name says "column", and that is the part people get wrong. BigTable is a sorted map, which means a set of key and value pairs held in key order. Each value is found by three things together: a row key, a column key, and a timestamp. The value itself is a plain string of bytes, and BigTable never looks inside it.

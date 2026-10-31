@@ -2,6 +2,17 @@
 
 > A database that reads physical clocks, admits how wrong they might be, and waits that error out before it says "committed".
 
+```mermaid
+flowchart TB
+    C[Client] --> Z[Paxos group for a shard]
+    subgraph Global[Globally distributed shards]
+      Z --- Z2[Paxos group]
+      Z --- Z3[Paxos group]
+    end
+    TT[TrueTime: GPS + atomic clocks] -. bounded-uncertainty timestamps .-> Z
+    Z -. two-phase commit across groups for cross-shard txns .-> Z2
+```
+
 ## What it is
 
 Spanner is Google's relational database, spread across datacenters on several continents. It gives you SQL, schemas, secondary indexes, and transactions that cross the planet.
