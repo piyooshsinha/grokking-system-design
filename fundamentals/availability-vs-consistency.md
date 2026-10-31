@@ -46,4 +46,3 @@ The choice is per-dataset, not per-system. A single product often uses CP for pa
 
 - Read more (free): [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc)
 - Related pattern: [CAP theorem](../patterns/cap-theorem.md), [consistency models](../patterns/consistency-models.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

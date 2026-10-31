@@ -82,4 +82,3 @@ classDiagram
 ## Go deeper
 
 - Related: [low-level design index](README.md); the scheduling flavor echoes a [distributed job scheduler](../questions/design-distributed-job-scheduler.md).
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

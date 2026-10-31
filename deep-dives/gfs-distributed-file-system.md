@@ -79,5 +79,3 @@ The single master is acceptable for one reason: it is off the data path, and its
 ## Go deeper
 
 - Related deep dive: [HDFS file storage](hdfs-file-storage.md), plus [Chubby](chubby-distributed-locking.md) for the [leader election](../patterns/leader-election.md) that keeps one master in charge
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-gfs-distributed-file-system)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-gfs-distributed-file-system)

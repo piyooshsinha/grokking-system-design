@@ -136,8 +136,3 @@ The most common follow-up is replication versus erasure coding, and the answer d
 - Syncing files on top of a store like this: [design Dropbox](design-dropbox.md).
 - The file system design this builds on: [GFS deep dive](../deep-dives/gfs-distributed-file-system.md).
 - Partitioning a key space across many nodes: [Dynamo deep dive](../deep-dives/dynamo-key-value-store.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-amazon-s3)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-amazon-s3)

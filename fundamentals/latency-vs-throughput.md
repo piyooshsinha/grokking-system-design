@@ -59,4 +59,3 @@ State your latency target as a percentile ("p99 under 200 ms") and your throughp
 
 - Read more (free): [Back-of-the-Envelope Estimation](https://www.designgurus.io/blog/back-of-the-envelope-system-design-interview)
 - Related: [Estimation cheat sheet](../cheat-sheets/estimation.md), [caching](../patterns/caching.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

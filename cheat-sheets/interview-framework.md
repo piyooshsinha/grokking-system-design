@@ -107,8 +107,3 @@ An unfinished design with one strong deep dive interviews better than a complete
 - See the framework applied end to end in [an annotated mock interview](mock-interview-walkthrough.md), where two candidates answer the same question and only one of them gets hired.
 - Then run it yourself against the [question catalog](../questions/), starting with [Design TinyURL](../questions/design-tinyurl.md).
 - The errors that sink otherwise strong candidates are collected in [common mistakes](common-mistakes.md).
-
-## Go deeper
-
-- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-interview-framework)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-interview-framework)

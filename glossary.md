@@ -38,4 +38,4 @@ Common system design vocabulary, in plain language. Terms with a dedicated page 
 
 ## Go deeper
 
-Every term here is covered in depth in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=glossary).
+Build depth with the [six-week learning path](roadmaps/6-week-plan.md), then revisit difficult terms with the local study tutor.

@@ -41,8 +41,3 @@ Two operational notes:
 ## How to talk about it in an interview
 
 "What happens when the consumer falls behind?" is one of the most reliable interview probes. The strong answer names three things in a single sentence: the bound (the queue holds at most N items), the policy (past that we shed with 429 and Retry-After, or drop the oldest telemetry), and the metric (we alert on lag trend and scale consumers on it). Designing a queue yourself makes all of this concrete: see [Design a Distributed Message Queue](../questions/design-distributed-message-queue.md). The queue technology you pick also decides how much backpressure you get for free: compare [Kafka vs RabbitMQ vs SQS](../cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md).
-
-## Go deeper
-
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-backpressure)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-backpressure)

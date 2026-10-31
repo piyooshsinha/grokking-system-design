@@ -135,8 +135,3 @@ The most common follow-up is the length of the grace period. A long grace period
 - The platform that produces these clicks: [design Google Ads](design-google-ads.md).
 - Another high-volume counting problem: [design a YouTube likes counter](design-youtube-likes-counter.md).
 - Time-windowed data at scale: [design a metrics monitoring system](design-metrics-monitoring.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-ad-click-aggregator)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-ad-click-aggregator)

@@ -139,8 +139,3 @@ The most common follow-up is exactness against latency for budgets. A strongly c
 - Counting clicks and impressions at scale: [design an ad click aggregator](design-ad-click-aggregator.md).
 - Exact money movement: [design a payment system](design-payment-system.md).
 - The page the ads appear on: [design Google Search](design-google-search.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-ads)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-ads)

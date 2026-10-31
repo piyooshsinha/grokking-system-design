@@ -49,10 +49,3 @@ Pick the weakest model the product can tolerate, because weaker is faster and mo
 ## How to talk about it in an interview
 
 Name the model per piece of data, not for the whole system. Tie it to [replication](replication.md) and the [CAP theorem](cap-theorem.md): the model you can offer depends on how you replicate and what you do during a partition.
-
-## Go deeper
-
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)
-- For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistency-models)

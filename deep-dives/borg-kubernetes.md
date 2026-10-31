@@ -52,8 +52,3 @@ You get large utilization gains and one uniform way to operate everything, paid 
 ## Why it matters in interviews
 
 This is the source material behind [design a distributed job scheduler](../questions/design-distributed-job-scheduler.md) and behind the common question of how Kubernetes actually works. It also underpins [design a code deployment system](../questions/design-code-deployment-system.md), where a rolling update is just a controller advancing desired state a few tasks at a time and pausing when health checks fail. [Design a GPU cluster scheduler](../questions/design-gpu-cluster-scheduler.md) is the modern version of the same problem, with resources that are scarcer, chunkier, and much harder to subdivide.
-
-## Go deeper
-
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-borg-kubernetes)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-borg-kubernetes)

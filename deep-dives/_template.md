@@ -26,8 +26,3 @@ What was hard before this design, and what goal it optimizes for (for example av
 ## Trade-offs
 
 What it gives up to get what it optimizes for.
-
-## Go deeper
-
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-SYSTEM-SLUG)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-SYSTEM-SLUG)

@@ -81,4 +81,3 @@ classDiagram
 ## Go deeper
 
 - Related: [low-level design index](README.md); the [elevator](elevator-system.md) is another State-pattern problem.
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

@@ -49,8 +49,3 @@ Checkpoints restore operator state exactly. After a crash, Flink rewinds the sou
 You get correct, stateful, low-latency stream processing. You pay in operational complexity. Checkpoint intervals need tuning, large state makes checkpoints slower, and restart time grows with state size because state must be reloaded before the job catches up. The programming model is also steeper than a queue consumer.
 
 Be honest about when it is overkill. If your job is stateless per message (validate it, enrich it, forward it), a plain consumer is simpler and you should say so. The [batch vs stream](../patterns/batch-vs-stream-processing.md) decision comes before the tool choice. Flink earns its complexity in problems like [designing an ad click aggregator](../questions/design-ad-click-aggregator.md) and [designing a metrics and monitoring system](../questions/design-metrics-monitoring.md), where windowed counts have to be right and late-arriving events are normal, not exceptional.
-
-## Go deeper
-
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-flink-stream-processing)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-flink-stream-processing)

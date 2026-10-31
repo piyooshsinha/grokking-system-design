@@ -137,8 +137,3 @@ The most common follow-up is exactly-once execution. A lock alone cannot provide
 
 - A close relative that fires notifications at a time: [design a reminder and alert system](design-reminder-alert-system.md).
 - The queue between scheduler and workers: [design a distributed message queue](design-distributed-message-queue.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-job-scheduler)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-job-scheduler)

@@ -78,4 +78,3 @@ This is the crux of the question:
 ## Go deeper
 
 - Related: [LRU cache](lru-cache.md) (the eviction core), [caching pattern](../patterns/caching.md), [distributed cache](../questions/design-distributed-cache.md), and the real system [Memcached at Facebook](../deep-dives/memcached-at-facebook.md).
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

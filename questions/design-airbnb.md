@@ -134,8 +134,3 @@ The most common follow-up is how fresh search availability has to be. Strong con
 - The same inventory problem with rooms instead of nights: [design a hotel reservation system](design-hotel-reservation.md).
 - Geographic indexing in depth: [design a proximity service](design-proximity-service.md).
 - Payments with idempotency: [design a payment system](design-payment-system.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-airbnb)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-airbnb)

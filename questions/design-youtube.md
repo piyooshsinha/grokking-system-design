@@ -141,8 +141,3 @@ The most common follow-up is popular versus long-tail content. A small share of 
 - The same pipeline from a curated catalog angle: [design Netflix](design-netflix.md).
 - View and like counts at scale: [design a YouTube likes counter](design-youtube-likes-counter.md).
 - Chunked, resumable uploads in more depth: [design Dropbox](design-dropbox.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-youtube)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-youtube)

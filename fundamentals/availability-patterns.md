@@ -65,4 +65,3 @@ See the [replication pattern](../patterns/replication.md) and the [databases fun
 
 - Read more (free): [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics)
 - Related pattern: [Replication](../patterns/replication.md), [leader election](../patterns/leader-election.md), [heartbeats](../patterns/heartbeats.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

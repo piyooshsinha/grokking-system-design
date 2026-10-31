@@ -46,8 +46,3 @@ A load balancer is a reverse proxy specialized for distributing traffic (see [lo
 ## How to talk about it in an interview
 
 Most candidates draw a reverse proxy without naming it. Naming it, and knowing that load balancers, API gateways, and CDN edges are all specialized reverse proxies, signals that you understand the layer rather than just the boxes. Expect the follow-up: "what is the difference between a forward and a reverse proxy?"
-
-## Go deeper
-
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-proxies)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-proxies)

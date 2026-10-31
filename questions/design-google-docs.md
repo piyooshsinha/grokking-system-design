@@ -138,8 +138,3 @@ The common follow-up is why you need a central server at all. OT needs one agree
 - The same concurrency problem on a drawing canvas: [design a collaborative whiteboard](design-collaborative-whiteboard.md).
 - Syncing whole files rather than individual edits: [design Dropbox](design-dropbox.md).
 - Pushing live events to many connected clients: [design Discord](design-discord.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-docs)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-docs)

@@ -56,4 +56,3 @@ Tunable stores like Cassandra and DynamoDB let you pick per operation via [quoru
 
 - Read more (free): [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems)
 - Related pattern: [Consistency models](../patterns/consistency-models.md), [quorum](../patterns/quorum.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

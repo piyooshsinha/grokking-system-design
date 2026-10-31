@@ -58,4 +58,3 @@ Don't force a pattern in. The senior move is reaching for one only when it remov
 
 - Related: the [system design questions](../questions/) (the HLD counterpart) and [patterns](../patterns/).
 - Read more (free): [Object-Oriented Design Interview](https://www.designgurus.io/blog/object-oriented-design-ood-interview)
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

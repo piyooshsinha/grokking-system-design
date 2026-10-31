@@ -91,5 +91,3 @@ Do not say "I will put a load balancer in front". Say "anycast plus DNS sends th
 
 - Patterns behind this sheet: [load balancing](../patterns/load-balancing.md) and [proxies](../patterns/proxies.md)
 - Questions that lean on this choice: [design an API gateway](../questions/design-api-gateway.md), [design WhatsApp](../questions/design-whatsapp.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-l4-vs-l7-load-balancing)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-l4-vs-l7-load-balancing)

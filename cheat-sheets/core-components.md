@@ -63,8 +63,3 @@ flowchart LR
 ## How to use this in an interview
 
 Name the component, say why it is there, and tie it to a requirement. Do not add a component unless something needs it. A clean design with five well-justified components beats a cluttered one with twelve.
-
-## Go deeper
-
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-core-components)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-core-components)

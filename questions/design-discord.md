@@ -131,8 +131,3 @@ The common follow-up is why sends go over HTTPS rather than the WebSocket. Keepi
 - One-to-one and small group delivery: [design WhatsApp](design-whatsapp.md).
 - Fan-out to millions of viewers with loose delivery rules: [design live comment streaming](design-live-comment-streaming.md).
 - Delivering events to offline users: [design a notification system](design-notification-system.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-discord)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-discord)

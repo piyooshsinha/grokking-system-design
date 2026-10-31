@@ -71,5 +71,3 @@ Do not say "I will shard by user id so it scales". Say "reads are almost all poi
 - Pick the store first: [Postgres vs DynamoDB vs Cassandra](postgres-vs-dynamodb-vs-cassandra.md)
 - Real systems sharding this way: [Cassandra](../deep-dives/cassandra-wide-column-db.md) (consistent hashing ring) and [Dynamo](../deep-dives/dynamo-key-value-store.md) (the paper the ring comes from)
 - Questions that use this choice: [design Twitter](../questions/design-twitter.md), [design Uber](../questions/design-uber.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-sharding-strategies)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-sharding-strategies)

@@ -70,4 +70,3 @@ Using a **doubly** linked list (not singly) is what makes `remove(node)` O(1) â€
 ## Go deeper
 
 - Related: [caching pattern](../patterns/caching.md), [distributed cache](../questions/design-distributed-cache.md).
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

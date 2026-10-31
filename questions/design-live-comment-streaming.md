@@ -133,8 +133,3 @@ The common follow-up is ordering. Comments get a server timestamp at ingest, and
 - Chat with stored history and stronger delivery rules: [design Discord](design-discord.md).
 - Counting reactions on a very hot item: [design a YouTube likes counter](design-youtube-likes-counter.md).
 - The live video itself: [design YouTube](design-youtube.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-live-comment-streaming)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-live-comment-streaming)

@@ -74,4 +74,3 @@ Each client has a `Bucket` with `capacity` tokens that refills at `refillPerSec`
 ## Go deeper
 
 - Related: [rate limiting pattern](../patterns/rate-limiting.md), [system-level rate limiter](../questions/design-rate-limiter.md).
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

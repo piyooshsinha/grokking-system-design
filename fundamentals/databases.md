@@ -69,4 +69,3 @@ Real systems use **both** (polyglot persistence): Postgres for orders and paymen
 
 - Read more (free): [Database Sharding Guide](https://www.designgurus.io/blog/database-sharding-guide-2026), [Database Indexing Explained](https://www.designgurus.io/blog/database-indexing)
 - Related: [SQL vs NoSQL](../cheat-sheets/sql-vs-nosql.md), [sharding and partitioning](../patterns/sharding-partitioning.md), [database indexing](../patterns/database-indexing.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

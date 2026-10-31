@@ -136,8 +136,3 @@ The most common follow-up is whether a central board server is a weakness. A sin
 - Text-level merging with OT and CRDTs: [design Google Docs](design-google-docs.md).
 - Fan-out of live messages to many clients: [design live comment streaming](design-live-comment-streaming.md).
 - Persistent connections and presence at scale: [design Discord](design-discord.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-collaborative-whiteboard)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-collaborative-whiteboard)

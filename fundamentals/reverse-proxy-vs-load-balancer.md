@@ -62,4 +62,3 @@ The honest interview answer is usually "the same box does both": clients hit one
 
 - Related pattern: [Load balancing](../patterns/load-balancing.md), [proxies](../patterns/proxies.md), [API gateway](../patterns/api-gateway.md)
 - Related fundamental: [Application layer](application-layer.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

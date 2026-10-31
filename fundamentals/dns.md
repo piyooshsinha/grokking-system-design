@@ -58,4 +58,3 @@ Managed services (Route 53, Cloudflare, NS1) build all of this on top of DNS.
 
 - Related pattern: [CDN](../patterns/cdn.md) (DNS steers users to the nearest edge), [load balancing](../patterns/load-balancing.md)
 - Read more (free): [System Design Interview Fundamentals](https://www.designgurus.io/blog/system-design-interview-fundamentals)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

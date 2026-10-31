@@ -71,4 +71,4 @@ State your assumptions, round aggressively, and show the division (this is Step 
 
 ## Go deeper
 
-More estimation practice in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-estimation).
+Apply these estimates to a complete problem in the [question catalog](../questions/).

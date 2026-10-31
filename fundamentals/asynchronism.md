@@ -47,4 +47,3 @@ Always monitor **queue depth** and **consumer lag**. A steadily growing queue is
 
 - Related pattern: [Message queues](../patterns/message-queues.md), [batch vs stream processing](../patterns/batch-vs-stream-processing.md), [rate limiting](../patterns/rate-limiting.md)
 - Deep dive: [Kafka](../deep-dives/kafka-distributed-messaging.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

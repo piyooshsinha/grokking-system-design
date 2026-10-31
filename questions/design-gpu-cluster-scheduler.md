@@ -69,7 +69,3 @@ Two 200-GPU jobs each holding 150 GPUs on a 300-GPU cluster is a deadlock. Appro
 ## Go deeper
 
 This walkthrough is written for a general system design round. For the AI-round version, which leads with data, evaluation, and cost, see [the GPU memory math](https://github.com/design-gurus/grokking-ai-system-design/blob/main/cheat-sheets/ai-numbers.md).
-
-- AI system design: [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gpu-cluster-scheduler)
-- AI foundations: [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gpu-cluster-scheduler)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gpu-cluster-scheduler)

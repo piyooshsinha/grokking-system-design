@@ -141,8 +141,3 @@ The most common follow-up is push versus pull. In a push model, the controller c
 
 - Where the health signals come from: [design a metrics and monitoring system](design-metrics-monitoring.md).
 - The storage behind the artifact store: [design Amazon S3](design-amazon-s3.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-code-deployment-system)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-code-deployment-system)

@@ -48,4 +48,3 @@ Say which problem you are solving. "This is read-heavy, so my scaling concern is
 
 - Read more (free): [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability)
 - Related pattern: [Load balancing](../patterns/load-balancing.md), [sharding and partitioning](../patterns/sharding-partitioning.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

@@ -55,4 +55,3 @@ Microservices need supporting patterns to stay reliable: an [API gateway](../pat
 
 - Read more (free): [19 Essential Microservices Patterns](https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews)
 - Related pattern: [API gateway](../patterns/api-gateway.md), [circuit breaker](../patterns/circuit-breaker.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

@@ -80,5 +80,3 @@ Say "I will push for ordinary accounts, because reads outnumber writes and a rea
 - Questions built on this choice: [design Twitter](../questions/design-twitter.md), [design Instagram](../questions/design-instagram.md)
 - A feed with no follower graph, where clustering and ranking replace fan-out: [design Google News](../questions/design-google-news.md)
 - The feed store choice: [SQL vs NoSQL](sql-vs-nosql.md)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-push-vs-pull-feeds)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-push-vs-pull-feeds)

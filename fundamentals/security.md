@@ -54,4 +54,3 @@ A single sentence signals maturity: "All traffic is over TLS, data is encrypted 
 
 - Related pattern: [API gateway](../patterns/api-gateway.md), [rate limiting](../patterns/rate-limiting.md)
 - Related fundamental: [Reverse proxy vs load balancer](reverse-proxy-vs-load-balancer.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

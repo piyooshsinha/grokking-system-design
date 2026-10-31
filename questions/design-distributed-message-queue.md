@@ -70,7 +70,3 @@ flowchart LR
     L -->|replicate| F2[Follower]
     CG[Consumer Group] -->|pull, then commit offset| L
 ```
-
-## Go deeper
-
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-message-queue)

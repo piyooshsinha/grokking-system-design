@@ -107,4 +107,3 @@ classDiagram
 ## Go deeper
 
 - Related: [low-level design index](README.md); the distributed cousin is [distributed locking](../patterns/distributed-locking.md).
-- Full course: [Grokking the Low Level Design (LLD) Interview](https://www.designgurus.io/course/grokking-the-low-level-design-interview-using-ood)

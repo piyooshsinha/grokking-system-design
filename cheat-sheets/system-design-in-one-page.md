@@ -94,5 +94,4 @@ Full version: [common mistakes](common-mistakes.md), [communication tips](commun
 
 ## Go deeper
 
-- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-system-design-in-one-page)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-system-design-in-one-page)
+- Practice this answer with a peer or record yourself and review it against the [SCOPE review](../guides/scope-method.md#the-scope-review).

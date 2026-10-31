@@ -64,8 +64,3 @@ flowchart LR
 - The write volume of location pings; absorb it with a stream and in-memory index rather than a database write per ping.
 - Geo hotspots; handle with adaptive cell sizing.
 - Matching latency vs match quality.
-
-## Go deeper
-
-- For harder problems like this: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-uber)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-uber)

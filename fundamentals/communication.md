@@ -68,4 +68,3 @@ For server-initiated updates (chat, live scores, presence), plain request/respon
 
 - Related: [REST vs gRPC vs GraphQL](../cheat-sheets/rest-vs-grpc-vs-graphql.md), [long polling vs WebSockets vs SSE](../patterns/long-polling-websockets-sse.md), [idempotency](../patterns/idempotency.md)
 - Read more (free): [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

@@ -148,8 +148,3 @@ The common follow-up is freshness. A degree badge is a display hint, not a permi
 - Ranking two-hop candidates as suggestions: [design People You May Know](design-people-you-may-know.md).
 - Another read-heavy social graph: [design Twitter](design-twitter.md).
 - A store that fits partitioned adjacency lists: [Cassandra deep dive](../deep-dives/cassandra-wide-column-db.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-linkedin-connections)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-linkedin-connections)

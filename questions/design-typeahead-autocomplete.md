@@ -134,8 +134,3 @@ The most common follow-up is freshness against cost. Rebuilding the whole map ev
 - The search system this feeds: [design Google Search](design-google-search.md).
 - Another top-k ranking problem: [design a gaming leaderboard](design-gaming-leaderboard.md).
 - Moving search logs reliably: [Kafka](../deep-dives/kafka-distributed-messaging.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-typeahead-autocomplete)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-typeahead-autocomplete)

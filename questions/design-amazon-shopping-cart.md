@@ -133,8 +133,3 @@ The most common follow-up is whether to use strong consistency instead. A strong
 - The checkout side, where stock is reserved: [design a flash sale system](design-flash-sale-system.md).
 - Charging the order safely: [design a payment system](design-payment-system.md).
 - The storage system behind this design: [Dynamo](../deep-dives/dynamo-key-value-store.md).
-
-## Go deeper
-
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-amazon-shopping-cart)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-amazon-shopping-cart)

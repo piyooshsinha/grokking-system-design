@@ -77,5 +77,3 @@ Changing your mind is hard. The keys are the schema, so a new access pattern usu
 ## Go deeper
 
 - Related deep dive: [Dynamo, the key-value store it is named after](dynamo-key-value-store.md)
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-dynamodb-managed-nosql)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-dynamodb-managed-nosql)
