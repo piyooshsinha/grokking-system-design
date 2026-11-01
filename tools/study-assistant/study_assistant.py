@@ -331,17 +331,42 @@ def build_index() -> None:
 
     print(f"  {len(files)} files -> {len(chunks)} chunks")
 
+    # Reuse vectors for chunks whose content and embedding model have not
+    # changed. This keeps a small documentation edit from re-embedding the
+    # entire repository on a local model.
+    cached_embeddings: dict[tuple[str, str, str, str], list[float]] = {}
+    if have_embeddings and INDEX_PATH.exists():
+        try:
+            previous = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+            if previous.get("embed_model") == EMBED_MODEL:
+                cached_embeddings = {
+                    (ch.get("file", ""), ch.get("title", ""), ch.get("heading", ""), ch.get("text", "")): ch["embedding"]
+                    for ch in previous.get("chunks", [])
+                    if ch.get("embedding") is not None
+                }
+        except (OSError, json.JSONDecodeError, TypeError):
+            cached_embeddings = {}
+
     embedded = 0
+    reused = 0
     for i, ch in enumerate(chunks):
         ch["tokens"] = tokenize(ch["heading"] + "\n" + ch["text"])
         if have_embeddings:
-            vec = embed(ch["heading"] + "\n" + ch["text"])
-            if vec:
+            cache_key = (ch["file"], ch["title"], ch["heading"], ch["text"])
+            vec = cached_embeddings.get(cache_key)
+            if vec is not None:
                 ch["embedding"] = vec
                 embedded += 1
+                reused += 1
+            else:
+                vec = embed(ch["heading"] + "\n" + ch["text"])
+                if vec:
+                    ch["embedding"] = vec
+                    embedded += 1
             _progress(i + 1, len(chunks))
     if have_embeddings:
         sys.stdout.write("\n")
+        print(f"  Reused {reused} unchanged embeddings; embedded {embedded - reused} changed or new chunks.")
 
     # Document frequencies for the keyword-fallback scorer.
     df: dict[str, int] = {}
