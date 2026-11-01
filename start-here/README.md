@@ -16,7 +16,7 @@ Use SCOPE on every problem:
 
 Read the full [SCOPE guide](../guides/scope-method.md), then work through the [notification delivery example](../guides/scope-notifications-worked-example.md).
 
-Want to follow the ideas through working code? Try [Seatline, the live ticket reservation demo](https://study.192-168-1-22.sslip.io/seatline/), then read [how it works](../examples/seatline/README.md). Reserve seats, check out, and watch an asynchronous confirmation get delivered. The demo is hosted on the Systems Workbench NUC; install its local certificate from [pakhi.local/ca.crt](http://pakhi.local/ca.crt) if your device asks you to trust it.
+Want to follow the ideas through working code? Open [Seatline, the live ticket reservation demo](https://study.192-168-1-22.sslip.io/seatline/) alongside the [guided end-to-end walkthrough](../guides/seatline-end-to-end.md). Trace a reservation into the code, run the race and retry exercises, then explore how the design changes when the database or notification worker is slow or unavailable. The [application guide](../examples/seatline/README.md) covers local setup. The demo is hosted on the Systems Workbench NUC; install its local certificate from [pakhi.local/ca.crt](http://pakhi.local/ca.crt) if your device asks you to trust it.
 
 ## Choose a study path
 

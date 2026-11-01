@@ -68,6 +68,9 @@ TLS certificate. Devices that do not trust the homelab CA can install it from
 
 ## Follow the request
 
+For a staged learning path with code links, runnable experiments, and slow or unavailable dependency scenarios, open the [Seatline end-to-end walkthrough](../../guides/seatline-end-to-end.md).
+
+
 ```mermaid
 sequenceDiagram
     actor Buyer
