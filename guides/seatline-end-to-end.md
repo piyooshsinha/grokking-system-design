@@ -35,15 +35,12 @@ sequenceDiagram
     participant API as Seatline API
     participant DB as SQLite
     participant B as Buyer B
-    par Concurrent request A
-      A->>API: Hold one seat
-      API->>DB: BEGIN IMMEDIATE; read capacity; insert hold
-      DB-->>A: Hold created
-    and Concurrent request B
-      B->>API: Hold one seat
-      API->>DB: Wait, then read committed capacity
-      DB-->>B: 409; no seat remains
-    end
+    A->>API: Hold one seat
+    API->>DB: BEGIN IMMEDIATE, check capacity, insert hold
+    DB-->>A: Hold created
+    B->>API: Hold one seat
+    API->>DB: Wait for transaction, check capacity
+    DB-->>B: 409, no seat remains
 ```
 
 - **In the code:** [`create_hold`](https://github.com/piyooshsinha/grokking-system-design/blob/main/examples/seatline/app.py#L144-L173) serializes the capacity check with `BEGIN IMMEDIATE`; [`run_race_lab`](https://github.com/piyooshsinha/grokking-system-design/blob/main/examples/seatline/app.py#L221-L263) runs and cleans up the two-request exercise.
