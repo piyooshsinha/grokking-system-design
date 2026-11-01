@@ -4,7 +4,9 @@ Seatline is a small ticket reservation app that makes the design decisions in
 Systems Workbench concrete. A reader can search events, reserve a limited number
 of seats, check out, and watch an asynchronous confirmation arrive. The
 **Replay delivery** action deliberately delivers the same event twice so the
-consumer's deduplication behavior is visible.
+consumer's deduplication behavior is visible. An isolated browser-local failure
+playground lets readers slow or pause a simulated notification worker and take a
+simulated inventory database offline without touching real orders or seats.
 
 This is a teaching system, not a production ticketing service. Payment is
 simulated. The first version uses one Python process and SQLite so the complete

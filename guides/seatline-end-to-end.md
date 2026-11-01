@@ -94,18 +94,18 @@ sequenceDiagram
 
 Suppose notification delivery falls behind. The order can still be confirmed because the outbox row is durable and committed with it; the confirmation appears later when a worker processes the backlog. If the worker stops, pending rows wait in the database. The next design should expose queue age and backlog, retry with limits, and define what happens to poison events. It should also run the relay independently so a worker failure does not take the checkout HTTP process down.
 
-Seatline's worker is a thread inside the same Python process. The live app does not offer a switch to stop just that thread, so treat this as an architecture exercise rather than a failure toggle in the demo. The outbox itself is real and the duplicate-delivery behavior is runnable.
+The live app includes an isolated **Failure playground**: pause or slow a browser-local worker simulation, queue confirmations, resume it, and watch the backlog drain. Replay a simulated event to see consumer deduplication. This model never calls Seatline's API; the actual outbox remains in the separate real-order flow above. The current production worker is still a thread inside the Python process, so the playground models independent worker failure without stopping that live thread.
 
 ## 5. Probe slow and unavailable dependencies
 
-Use these prompts to reason about behavior beyond the baseline. For each, decide what the buyer sees, which invariant must remain true, and what signal would reveal the problem.
+Use the isolated **Failure playground** on the [live demo](https://study.192-168-1-22.sslip.io/seatline/) to operate the worker and inventory scenarios. It changes only browser-local simulation state. For each scenario, decide what the buyer sees, which invariant must remain true, and what signal would reveal the problem.
 
 | Scenario | What this version does | Design decision to explore |
 |---|---|---|
 | Catalog read is slow | A cache hit avoids SQLite for a short period; a miss reads the database. | Set a read timeout, serve explicitly stale browse results if acceptable, and keep checkout's capacity check authoritative. |
 | SQLite is locked or slow | SQLite waits up to its configured busy timeout; prolonged lock contention can surface as an operational error. | Bound request time, return a clear retryable response, shed excess load, and use the same idempotency key for a checkout retry. |
-| Database is unavailable | Holds and checkout cannot safely establish inventory or order state. This app does not have a tested database-failure mode. | Fail closed for reservation writes; do not claim a ticket was sold. Decide whether browse can use stale cached data and label its freshness. |
-| Notification worker is unavailable | A committed outbox row remains pending while the process and database remain available. | Keep checkout independent of notification latency; alert on oldest pending event and backlog size; restart or scale the relay. |
+| Database is unavailable | The browser simulation rejects checkout without creating an order or consuming its sample seat. The live database path is not disrupted. | Fail closed for reservation writes; do not claim a ticket was sold. Decide whether browse can use stale cached data and label its freshness. |
+| Notification worker is unavailable | In the browser simulation, queued confirmations wait while paused and drain after resume; the real outbox is not modified. | Keep checkout independent of notification latency; alert on oldest pending event and backlog size; restart or scale the relay. |
 | Network partition between inventory regions | This baseline has one SQLite database and no replica to fail over to. | For unique seats, prefer one authoritative writer and reject writes that cannot reach it. Compare the cost with accepting conflicting writes and reconciling later. |
 
 To see the consistency choice interactively, open the [CAP theorem simulator](../patterns/cap-theorem.md) and switch between CP and AP while cutting the network link. Apply that choice to **inventory writes**, where selling one seat twice breaks the promise. Catalog browsing can tolerate a different freshness policy.
