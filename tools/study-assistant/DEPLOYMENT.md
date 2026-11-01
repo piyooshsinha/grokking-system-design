@@ -31,6 +31,14 @@ docker exec shelf-ollama ollama pull nomic-embed-text
 docker exec shelf-ollama ollama pull qwen2.5:3b
 ```
 
+Seatline is part of this same repository and runs as a companion container. It
+is available at `https://study.192-168-1-22.sslip.io/seatline/`; it does not
+need a separate hostname or certificate. Start it from the repository root:
+
+```bash
+docker compose -f examples/seatline/compose.nuc.yml up -d --build
+```
+
 ## Caddy route
 
 The existing Caddy container must share the `reverse-proxy_default` network.
@@ -39,7 +47,14 @@ Its Caddyfile needs this site block:
 ```caddyfile
 https://study.192-168-1-22.sslip.io {
     tls internal
-    reverse_proxy systems-workbench:8000
+    @seatlineRoot path /seatline
+    redir @seatlineRoot /seatline/ 308
+    handle_path /seatline/* {
+        reverse_proxy seatline:8090
+    }
+    handle {
+        reverse_proxy systems-workbench:8000
+    }
 }
 ```
 

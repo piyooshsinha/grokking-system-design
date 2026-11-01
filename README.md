@@ -46,7 +46,7 @@ The app opens at `http://127.0.0.1:8000`. To enable local model features, instal
 
 ## Run the reference application
 
-[Seatline](examples/seatline/) is a runnable ticket reservation app. Follow a seat hold through checkout, inventory updates, the transactional outbox, and an idempotent notification worker. It is the concrete companion to the concepts in this guide; the [Seatline README](examples/seatline/README.md) maps each behavior to the code and its study pages. On the NUC, open the [live Seatline demo](https://seatline.192-168-1-22.sslip.io).
+[Seatline](examples/seatline/) is a runnable ticket reservation app. Follow a seat hold through checkout, inventory updates, the transactional outbox, and an idempotent notification worker. It is the concrete companion to the concepts in this guide; the [Seatline README](examples/seatline/README.md) maps each behavior to the code and its study pages. On the NUC, open the [live Seatline demo](https://study.192-168-1-22.sslip.io/seatline/).
 
 ## Repository map
 

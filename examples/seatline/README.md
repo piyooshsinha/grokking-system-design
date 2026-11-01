@@ -34,26 +34,37 @@ docker compose up --build
 The Compose setup stores SQLite data in a named volume and publishes port 8090.
 Open `http://127.0.0.1:8090` after the container starts.
 
-On the Intel NUC, use `compose.nuc.yml` to attach Seatline to the existing Caddy
-network. Caddy serves the live copy at
-`https://seatline.192-168-1-22.sslip.io` with the NUC's local certificate.
-Start it from the repository root with:
+On the Intel NUC, Seatline runs from this repository and shares the Workbench
+domain. Caddy serves it at
+`https://study.192-168-1-22.sslip.io/seatline/`; the Workbench stays at the
+root URL. Start it from the repository root with:
 
 ```bash
 docker compose -f examples/seatline/compose.nuc.yml up -d --build
 ```
 
-The existing Caddyfile needs this site block:
+Add the path route to the existing Workbench site block in the Caddyfile.
+`handle_path` removes `/seatline` before forwarding, and Seatline prefixes its
+API calls so they stay under the same URL:
 
 ```caddyfile
-https://seatline.192-168-1-22.sslip.io {
+https://study.192-168-1-22.sslip.io {
     tls internal
-    reverse_proxy seatline:8090
+    @seatlineRoot path /seatline
+    redir @seatlineRoot /seatline/ 308
+    handle_path /seatline/* {
+        reverse_proxy seatline:8090
+    }
+    handle {
+        reverse_proxy systems-workbench:8000
+    }
 }
 ```
 
 The NUC's Caddy admin API is disabled, so restart its `reverse-proxy` container
-after changing the Caddyfile.
+after changing the Caddyfile. Both apps now use the same Workbench hostname and
+TLS certificate. Devices that do not trust the homelab CA can install it from
+`http://pakhi.local/ca.crt`.
 
 ## Follow the request
 
